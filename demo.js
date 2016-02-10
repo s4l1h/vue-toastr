@@ -9,10 +9,26 @@ new Vue({
     },
     methods: {
         add: function() {
-            this.$refs.toastr.e("this.$refs.toastr.e","Error");
+            this.$root.$refs.toastr.Add({
+                title: "Sticky",
+                msg: "You can't close",
+                clickClose: false,
+                timeout: 0,
+                position: "toast-top-full-width",
+                type: "error"
+            });
+            this.$root.$refs.toastr.Add({
+                msg: "You cant click close, auto closed 8 sec.. with timeout options",
+                title: "Sticky2",
+                clickClose: false,
+                timeout: 8000,
+                position: "toast-top-full-width",
+                type: "error"
+            });
+            this.$refs.toastr.e("this.$refs.toastr.e", "Error");
             this.$refs.toastr.s("this.$refs.toastr.s");
-            this.$refs.toastr.w("this.$refs.toastr.w","Warning");
-            this.$refs.toastr.i("this.$refs.toastr.i","Information");
+            this.$refs.toastr.w("this.$refs.toastr.w", "Warning");
+            this.$refs.toastr.i("this.$refs.toastr.i", "Information");
             //console.log(this.$refs.toastr);
             // if you send String default setting working.
             this.$refs.toastr.Add("Working With Default Options,closed 5 sec.");
