@@ -9,6 +9,10 @@ new Vue({
     },
     methods: {
         add: function() {
+            this.$refs.toastr.e("this.$refs.toastr.e");
+            this.$refs.toastr.s("this.$refs.toastr.s");
+            this.$refs.toastr.w("this.$refs.toastr.w");
+            this.$refs.toastr.i("this.$refs.toastr.i");
             //console.log(this.$refs.toastr);
             // if you send String default setting working.
             this.$refs.toastr.Add("Working With Default Options,closed 5 sec.");
@@ -38,8 +42,6 @@ new Vue({
                 this.$refs.toastr.Close(VooAaa);
             }.bind(this), 2000);
             //this.$refs.toastr.close(VooAaa);
-
-
             // You Can Change Default Toast Type
             this.$refs.toastr.defaultTimeout = 3000; // default timeout : 5000
             // You Can Change Default Toast Type

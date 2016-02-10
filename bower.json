@@ -2,7 +2,7 @@
   "name": "vue-toastr",
   "main": "dist/vue-toastr.js",
   "description": "Toastr for Vue.js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "homepage": "https://github.com/s4l1h/vue-toastr",
   "license": "MIT",
   "ignore": [
