@@ -9,10 +9,10 @@ new Vue({
     },
     methods: {
         add: function() {
-            this.$refs.toastr.e("this.$refs.toastr.e");
+            this.$refs.toastr.e("this.$refs.toastr.e","Error");
             this.$refs.toastr.s("this.$refs.toastr.s");
-            this.$refs.toastr.w("this.$refs.toastr.w");
-            this.$refs.toastr.i("this.$refs.toastr.i");
+            this.$refs.toastr.w("this.$refs.toastr.w","Warning");
+            this.$refs.toastr.i("this.$refs.toastr.i","Information");
             //console.log(this.$refs.toastr);
             // if you send String default setting working.
             this.$refs.toastr.Add("Working With Default Options,closed 5 sec.");

@@ -75,24 +75,36 @@ export default {
                 timeout: this.defaultTimeout
             }
         },
-        e(msg) {
+        e(msg, title) {
             var data = this.processObjectData(msg);
             data['type'] = 'error';
+            if (typeof title != "undefined") {
+                data['title'] = title;
+            }
             return this.AddData(data);
         },
-        s(msg) {
+        s(msg, title) {
             var data = this.processObjectData(msg);
             data['type'] = 'success';
+            if (typeof title != "undefined") {
+                data['title'] = title;
+            }
             return this.AddData(data);
         },
-        w(msg) {
+        w(msg, title) {
             var data = this.processObjectData(msg);
             data['type'] = 'warning';
+            if (typeof title != "undefined") {
+                data['title'] = title;
+            }
             return this.AddData(data);
         },
-        i(msg) {
+        i(msg, title) {
             var data = this.processObjectData(msg);
             data['type'] = 'info';
+            if (typeof title != "undefined") {
+                data['title'] = title;
+            }
             return this.AddData(data);
         },
         Close(data) {
