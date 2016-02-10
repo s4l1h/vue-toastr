@@ -7,7 +7,7 @@ export default {
     },
     created() {
         //console.log("created", this.data);
-        if (typeof this.data.timeout != "undefined" || this.data.timeout != 0) {
+        if (typeof this.data.timeout != "undefined" && this.data.timeout != 0) {
             setTimeout(function() {
                 this.close();
             }.bind(this), this.data.timeout);
@@ -23,7 +23,7 @@ export default {
         },
         // Click Close?
         cclose() {
-            if (this.data.clickClose != undefined && this.data.clickClose == false) {
+            if (typeof this.data.clickClose != "undefined" && this.data.clickClose == false) {
                 return;
             }
             this.close();
