@@ -3,10 +3,10 @@ export default {
     template: template,
     props: ['data'],
     ready() {
-        console.log("ready", this.data);
+        //console.log("ready", this.data);
     },
     created() {
-        console.log("created", this.data);
+        //console.log("created", this.data);
         if (typeof this.data.timeout != "undefined" || this.data.timeout != 0) {
             setTimeout(function() {
                 this.close();
@@ -16,25 +16,25 @@ export default {
     methods: {
         // Clicked Toast
         clicked() {
-                if (typeof this.data.onClicked != "undefined") {
-                    this.data.onClicked();
-                }
-                this.cclose();
-            },
-            // Click Close?
-            cclose() {
-                if (this.data.clickClose != undefined && this.data.clickClose == false) {
-                    return;
-                }
-                this.close();
-            },
-            // Close Toast
-            close() {
-                //console.log(typeof this.$parent, this);
-                // if toast not manuel closed.
-                if (this.$parent != null) {
-                    this.$parent.Close(this.data);
-                }
+            if (typeof this.data.onClicked != "undefined") {
+                this.data.onClicked();
             }
+            this.cclose();
+        },
+        // Click Close?
+        cclose() {
+            if (this.data.clickClose != undefined && this.data.clickClose == false) {
+                return;
+            }
+            this.close();
+        },
+        // Close Toast
+        close() {
+            //console.log(typeof this.$parent, this);
+            // if toast not manuel closed.
+            if (this.$parent != null) {
+                this.$parent.Close(this.data);
+            }
+        }
     }
 }
