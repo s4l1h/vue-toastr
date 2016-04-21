@@ -4,19 +4,21 @@ export default {
     template: template,
     name: "vueToastr",
     data() {
+        var positions = ['toast-top-right', 'toast-bottom-right', 'toast-bottom-left', 'toast-top-left', 'toast-top-full-width', 'toast-bottom-full-width', 'toast-top-center', 'toast-bottom-center'];
+        var list = {}
+        for (var i = 0; i <= positions.length - 1; i++) {
+            list[positions[i]] = [];
+        }
         return {
-            positions: ['toast-top-right', 'toast-bottom-right', 'toast-bottom-left', 'toast-top-left', 'toast-top-full-width', 'toast-bottom-full-width', 'toast-top-center', 'toast-bottom-center'],
+            positions,
             defaultPosition: 'toast-top-right',
             defaultType: 'success',
             defaultTimeout: 5000,
-            list: {},
+            list,
         }
     },
     created() {
         // console.log("Created");
-        for (var i = 0; i <= this.positions.length - 1; i++) {
-            this.list[this.positions[i]] = [];
-        }
     },
     ready() {
         // console.log("ready", this.list);
