@@ -1,7 +1,9 @@
 # vue-toastr
 
-Toastr For Vuejs
+
+Toastr for Vue.js no jquery dependencies https://github.com/s4l1h/vue-toastr
 
 Demo: http://s4l1h.github.io/vue-toastr/
 
-Original : http://codeseven.github.io/toastr/
+
+Ported From Jquery Toastr : http://codeseven.github.io/toastr/
