@@ -1,17 +1,19 @@
 <html>
-    <body>
-        <div id="app">
-            <button type="button" name="button" @click="add">
+
+<body>
+    <div id="app">
+        <button type="button" name="button" @click="add">
                 SHOW ME
             </button>
-            <vue-toastr v-ref:toastr>
-            </vue-toastr>
-        </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.24/vue.js">
+        <vue-toastr ref="toastr">
+        </vue-toastr>
+    </div>
+    <script src="https://unpkg.com/vue@^2.0.1/dist/vue.js">
         </script>
-        <script src="dist/vue-toastr.combine.min.js">
+    <script src="dist/vue-toastr.combine.min.js">
         </script>
-        <script src="demo.js">
+    <script src="demo.js">
         </script>
-    </body>
+</body>
+
 </html>
