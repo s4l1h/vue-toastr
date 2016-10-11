@@ -1,12 +1,8 @@
 # vue-toastr
 
-> This is vue-toastr which works only with Vue 2.0. vue-toastr@2.0.0
+> This is vue-toastr which works only with Vue 2.0. vue-toastr@2.0.2
 
 > For the Vue 1.x see the [1.0 branch](https://github.com/s4l1h/vue-toastr/tree/1.0). vue-toastr@1.0.4
-
-Master branch work with vue 2.0
-
-For development run this command: ""npm run dev"" and open in browser http://localhost:8080/webpack-dev-server/indexDev.html
 
 
 ### Development Setup
