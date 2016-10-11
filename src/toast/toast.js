@@ -2,7 +2,7 @@ import template from './toast.html';
 export default {
     template: template,
     props: ['data'],
-    ready() {
+    mounted () {
         //console.log("ready", this.data);
     },
     created() {
