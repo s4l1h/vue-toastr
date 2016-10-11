@@ -16,7 +16,7 @@ npm install
 # serve examples at http://localhost:8080/indexDev.html or http://localhost:8080/webpack-dev-server/indexDev.html
 npm run dev
 # build  dist/vue-toastr.js dist/vue-toastr.css
-npm run build_min
+npm run build
 # build for production min version. dist/vue-toastr.min.js dist/vue-toastr.min.css
 npm run build_min
 # build for production js+css combine. dist/vue-toastr.combine.min.js
