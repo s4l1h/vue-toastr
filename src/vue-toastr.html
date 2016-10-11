@@ -1,4 +1,6 @@
-<div class="toast-container {{k}}" v-for="(k,m) in list">
-    <toast :data="mm" v-for="mm in m">
-    </toast>
+<div>
+  <div v-bind:class="'toast-container ' + k" v-for="(m, k) in list">
+      <toast :data="mm" v-for="mm in m">
+      </toast>
+  </div>
 </div>

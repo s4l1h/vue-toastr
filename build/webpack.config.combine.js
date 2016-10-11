@@ -10,6 +10,11 @@ module.exports = {
         library: ["vueToastr"],
         libraryTarget: "umd"
     },
+    resolve: {
+      alias: {
+        vue: 'vue/dist/vue.js'
+      }
+    },
     module: {
         loaders: [{
             test: /\.less$/,

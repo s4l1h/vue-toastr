@@ -1,3 +1,3 @@
-import vueToastr from './vue-toastr.js';
-require('./vue-toastr.less');
-export default vueToastr;
+import vueToastr from './vue-toastr.js'
+import './vue-toastr.less'
+export default vueToastr

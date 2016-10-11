@@ -1,8 +1,6 @@
-<div class="toast toast-{{data.type}}" style="display: block;" @click="clicked()">
-    <div class="toast-title">
-        {{{data.title}}}
+<div v-bind:class="'toast toast-' + data.type" style="display: block;" @click="clicked()">
+    <div class="toast-title" v-html="data.title">
     </div>
-    <div class = "toast-message">
-        {{{data.msg}}}
+    <div class = "toast-message" v-html="data.msg">
     </div>
 </div>
