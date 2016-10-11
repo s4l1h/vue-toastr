@@ -13,7 +13,7 @@ For development run this command: ""npm run dev"" and open in browser http://loc
 # install deps
 npm install
 
-# serve examples at http://localhost:8080/indexDev.html or http://localhost:8080/webpack-dev-server/indexDev.html
+# serve examples at http://localhost:8080/
 npm run dev
 # build  dist/vue-toastr.js dist/vue-toastr.css
 npm run build
