@@ -1,9 +1,44 @@
 # vue-toastr
 
-> This is vue-toastr which works only with Vue 2.0. vue-toastr@2.0.2
+> This is master branch vue-toastr which works only with **Vue 2.0**. vue-toastr@**2.0.3**
+> For the **Vue 1.x** see the [1.0 branch](https://github.com/s4l1h/vue-toastr/tree/1.0). vue-toastr@**1.0.4**
 
-> For the Vue 1.x see the [1.0 branch](https://github.com/s4l1h/vue-toastr/tree/1.0). vue-toastr@1.0.4
+### With npm & babel
 
+*Add the Toast into the package.json. #for vue **1.x***
+
+    npm install vue-toastr@^1.0.4 --save
+
+
+*Add the Toast into the package.json. #for vue **2.x***
+
+    npm install vue-toastr@^2.0.3 --save
+
+*Add the toast in application and register component.*
+
+    // import Toastr
+    import Toastr from 'vue-toastr';
+    // import toastr less file: need webpack less-loader
+    require('vue-toastr/src/vue-toastr.less');
+    // Register vue component
+    Vue.component('vue-toastr',Toastr);
+
+*Add component html: for vue **1.x***
+
+    <vue-toastr v-ref:toastr></vue-toastr>
+
+*Add component html: for vue **2.x***
+
+    <vue-toastr ref="toastr"></vue-toastr>
+
+*Now you can manage toastr* 
+
+    this.$root.$refs.toastr.e("ERRROR MESSAGE");
+    this.$root.$refs.toastr.s("SUCCESS MESSAGE");
+
+### without npm
+
+http://s4l1h.github.io/vue-toastr/
 
 ### Development Setup
 
@@ -31,5 +66,3 @@ Demo: http://s4l1h.github.io/vue-toastr/
 
 
 Ported From Jquery Toastr : http://codeseven.github.io/toastr/
-
-
