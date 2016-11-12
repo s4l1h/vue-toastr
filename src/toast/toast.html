@@ -1,4 +1,4 @@
-<div v-bind:class="'toast toast-' + data.type" style="display: block;" @click="clicked()">
+<div v-bind:class="'toast toast-' + data.type" style="display: block;" @click="clicked()" v-on:mouseover="onMouseOver" v-on:mouseout="onMouseOut" >
     <div class="toast-title" v-html="data.title">
     </div>
     <div class = "toast-message" v-html="data.msg">

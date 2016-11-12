@@ -13,6 +13,7 @@ export default {
       positions,
       defaultPosition: 'toast-top-right',
       defaultType: 'success',
+      defaultCloseOnHover: true,
       defaultTimeout: 5000,
       list
     }
@@ -67,6 +68,9 @@ export default {
         if (typeof data.timeout === 'undefined') {
           data.timeout = this.defaultTimeout
         }
+        if (typeof data.closeOnHover === 'undefined') {
+          data.closeOnHover = this.defaultCloseOnHover
+        }
         return data
       }
       // if String
@@ -74,7 +78,8 @@ export default {
         msg: data.toString(),
         position: this.defaultPosition,
         type: this.defaultType,
-        timeout: this.defaultTimeout
+        timeout: this.defaultTimeout,
+        closeOnHover: this.defaultCloseOnHover
       }
     },
     e (msg, title) {
