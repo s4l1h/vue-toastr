@@ -8,14 +8,17 @@ new Vue({
         'vue-toastr': window.vueToastr
     },
     methods: {
-        add: function() {
+        add: function () {
             this.$root.$refs.toastr.Add({
                 title: "Sticky",
                 msg: "You can't close",
-                clickClose: false,
-                timeout: 0,
+                clickClose: false, // Click Close Disable
+                timeout: 0, // Remember defaultTimeout is 5 sec..
                 position: "toast-top-full-width",
-                type: "error"
+                type: "error",
+                onMouseOver: function () {
+                    alert("onMouseOver Event Sticky Toast");
+                }
             });
             this.$root.$refs.toastr.Add({
                 msg: "You cant click close, auto closed 8 sec.. with timeout options",
@@ -24,6 +27,21 @@ new Vue({
                 timeout: 8000,
                 position: "toast-top-full-width",
                 type: "error"
+            });
+            this.$root.$refs.toastr.Add({
+                msg: "You cant click close, auto closed 4 sec.. with timeout options closeOnHover enabled",
+                title: "Sticky3",
+                clickClose: false,
+                closeOnHover: false, // Enable closeOnHover Options... must be set timeout. Remember defaultTimeout is 5 sec..
+                timeout: 4000,
+                position: "toast-top-full-width",
+                type: "error",
+                onMouseOver: function () {
+                    alert("onMouseOver");
+                },
+                onMouseOut: function () {
+                    alert("onMouseOut");
+                }
             });
             this.$refs.toastr.e("this.$refs.toastr.e", "Error");
             this.$refs.toastr.s("this.$refs.toastr.s");
@@ -40,21 +58,21 @@ new Vue({
                 position: 'toast-top-left',
                 timeout: 5000,
                 clickClose: false,
-                onClosed: function() {
+                onClosed: function () {
                     alert("onClosed");
                 },
-                onCreated: function() {
+                onCreated: function () {
                     // get from test id from toast component.
                     // if component not created you cant access this.
                     alert("onCreated " + document.getElementById("test").innerHTML);
                 },
-                onClicked: function() {
+                onClicked: function () {
                     alert("onClicked");
                 }
             });
             //console.log(VooAaa);
             // You can close manuel this.
-            setTimeout(function() {
+            setTimeout(function () {
                 this.$refs.toastr.Close(VooAaa);
             }.bind(this), 2000);
             //this.$refs.toastr.close(VooAaa);

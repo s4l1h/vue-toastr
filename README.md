@@ -1,7 +1,12 @@
 # vue-toastr
 
-> This is master branch vue-toastr which works only with **Vue 2.0**. vue-toastr@**2.0.3**
+> This is master branch vue-toastr which works only with **Vue 2.x**. vue-toastr@**latest**
+
 > For the **Vue 1.x** see the [1.0 branch](https://github.com/s4l1h/vue-toastr/tree/1.0). vue-toastr@**1.0.4**
+
+
+**Note:**:closeOnHover,onMouseOver,onMouseOut works only **2.x**
+
 
 ### With npm & babel
 
@@ -12,7 +17,7 @@
 
 *Add the Toast into the package.json. #for vue **2.x***
 
-    npm install vue-toastr@^2.0.3 --save
+    npm install vue-toastr@^latest --save
 
 *Add the toast in application and register component.*
 
