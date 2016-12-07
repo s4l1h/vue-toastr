@@ -3,16 +3,31 @@
 <head>
     <link rel="stylesheet" href="dist/vue-toastr.css">
 </head>
-
+<style>
+.c{
+    height: 10em;
+    margin-top:200px;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+.c p{
+    margin: 0;
+}
+</style>
 <body>
     <div id="app">
-        <button type="button" name="button" @click="add">
-                SHOW ME
-            </button>
+        <div class="c">
+            <p>
+                <button type="button" name="button" @click="add">
+                        SHOW ME
+                </button>
+            </p>
+        </div>
         <vue-toastr ref="toastr">
         </vue-toastr>
     </div>
-    <script src="https://unpkg.com/vue@^2.0.1/dist/vue.js">
+    <script src="https://unpkg.com/vue@latest/dist/vue.js">
         </script>
     <script src="dist/vue-toastr.js">
         </script>

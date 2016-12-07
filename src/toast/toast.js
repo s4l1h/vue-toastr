@@ -34,11 +34,11 @@ export default {
         },
         // Set timeout to close
         setTimeout() {
-            console.log("setTimeout")
+            //console.log("setTimeout")
             this.data.intervalId = setTimeout(function () {
                 this.close();
             }.bind(this), this.data.timeout);
-            console.log(this.data.intervalId)
+            //console.log(this.data.intervalId)
         },
         // Clicked Toast
         clicked() {

@@ -15,10 +15,7 @@ new Vue({
                 clickClose: false, // Click Close Disable
                 timeout: 0, // Remember defaultTimeout is 5 sec..
                 position: "toast-top-full-width",
-                type: "error",
-                onMouseOver: function () {
-                    alert("onMouseOver Event Sticky Toast");
-                }
+                type: "error"
             });
             this.$root.$refs.toastr.Add({
                 msg: "You cant click close, auto closed 8 sec.. with timeout options",
@@ -29,7 +26,7 @@ new Vue({
                 type: "error"
             });
             this.$root.$refs.toastr.Add({
-                msg: "You cant click close, auto closed 4 sec.. with timeout options closeOnHover enabled",
+                msg: "onMouseOver,onMouseOut,You cant click close, auto closed 4 sec.. with timeout options closeOnHover enabled",
                 title: "Sticky3",
                 clickClose: false,
                 closeOnHover: false, // Enable closeOnHover Options... must be set timeout. Remember defaultTimeout is 5 sec..
