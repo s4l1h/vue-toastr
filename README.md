@@ -65,6 +65,80 @@ npm run clear
 npm run buildAll
 ```
 
+## Doc # Overwrite Settings
+
+#### Change Default Toast Type
+```
+this.$refs.toastr.defaultTimeout = 3000; // default timeout : 5000
+```
+#### Change Default Toast Type
+```
+this.$refs.toastr.defaultType = "error"; // default type : success
+```
+#### Change Default Position
+```
+this.$refs.toastr.defaultPosition = "toast-bottom-left" // default position: toast-top-right
+```
+#### Change Default Close On Mouse Hover
+```
+this.$refs.toastr.defaultCloseOnHover = false // default close on hover: true
+```
+
+## Doc # method
+#### New Error Type Toast Message
+```
+this.$refs.toastr.e("this.$refs.toastr.e message", "Error");
+```
+#### New Success Type Toast Message
+```
+this.$refs.toastr.s("this.$refs.toastr.s message");
+```
+#### New Warning Type Toast Message
+```
+this.$refs.toastr.w("this.$refs.toastr.w message", "Warning");
+```
+#### New Information Type Toast Message
+```
+this.$refs.toastr.i("this.$refs.toastr.i message", "Information");
+```
+#### New Toast Message with default options.
+```
+this.$refs.toastr.Add("Working on the default options");
+```
+#### New Toast Message with options.
+```
+this.$root.$refs.toastr.Add({
+    title: "Easy Toast", // Toast Title
+    msg: "Hi", // Message
+    clickClose: false, // Click Close Disable
+    timeout: 0, // Remember defaultTimeout is 5 sec..
+    position: "toast-top-full-width", // Toast Position.
+    type: "error" // Toast type
+});
+```
+## Doc # Options
+```
+{
+        title: "Toast Title",
+        msg: "Toast Msg", 
+        position: Toast position string can be  'toast-top-right', 'toast-bottom-right', 'toast-bottom-left', 'toast-top-left', 'toast-top-full-width', 'toast-bottom-full-width', 'toast-top-center', 'toast-bottom-center' ; default toast-top-right
+        type: Toast type can be : info,warning,error,success ; default success
+        timeout: Toast Timeout for auto close can be integer ; default 5000
+        closeOnHover: On mouse over stop timeout can be boolean; default true
+        clickClose: On click toast close can be boolean; default false
+        onCreated: On created toast event can be function
+        onClicked: On clicked toast event can be function
+        onClosed: On closed toast event can be function
+        onMouseOver: On mouse over toast event can be function
+        onMouseOut: On mouse over toast event can be function
+}
+```
+
+### Note:
+Pls for more details and example: 
+https://github.com/s4l1h/vue-toastr/blob/master/demo.js
+
+
 Toastr for Vue.js no jquery dependencies https://github.com/s4l1h/vue-toastr
 
 Demo: http://s4l1h.github.io/vue-toastr/
