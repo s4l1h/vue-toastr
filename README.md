@@ -67,9 +67,13 @@ npm run buildAll
 
 ## Doc # Overwrite Settings
 
-#### Change Default Toast Type
+#### Change Default Toast Timeout
 ```
 this.$refs.toastr.defaultTimeout = 3000; // default timeout : 5000
+```
+#### Change Default Toast ProgressBar
+```
+this.$refs.toastr.defaultProgressBar = false; // default active : true
 ```
 #### Change Default Toast Type
 ```
@@ -124,6 +128,7 @@ this.$root.$refs.toastr.Add({
         position: Toast position string can be  'toast-top-right', 'toast-bottom-right', 'toast-bottom-left', 'toast-top-left', 'toast-top-full-width', 'toast-bottom-full-width', 'toast-top-center', 'toast-bottom-center' ; default toast-top-right
         type: Toast type can be : info,warning,error,success ; default success
         timeout: Toast Timeout for auto close can be integer ; default 5000
+        progressbar: Progress Bar option need timeout. can be boolean; default true
         closeOnHover: On mouse over stop timeout can be boolean; default true
         clickClose: On click toast close can be boolean; default false
         onCreated: On created toast event can be function

@@ -1,17 +1,38 @@
 import template from './toast.html';
+import toastProgress from './toast-progress.js';
+
 export default {
+    components: {
+        toastProgress
+    },
     template: template,
     props: ['data'],
+    data() {
+        return { progressbar: false, intervalId: false }
+    },
     mounted() {
         //console.log("ready", this.data);
     },
     created() {
-        //console.log("created", this.data);
+        // console.log("created", this.data);
         if (typeof this.data.timeout != "undefined" && this.data.timeout != 0) {
+            if (this.data.progressbar != false) {
+                this.progressbar = true;
+            }
             this.setTimeout();
         }
     },
+    beforeDestroy() {
+        this.clearIntervalID();
+    },
     methods: {
+        clearIntervalID() {
+            // console.log(this.intervalId)
+            if (this.intervalId != false) {
+                clearInterval(this.intervalId);
+            }
+            this.intervalId = false
+        },
         // Enter Hover
         onMouseOver() {
             //console.log("onMouseOver")
@@ -19,10 +40,10 @@ export default {
                 this.data.onMouseOver();
             }
             if (!this.data.closeOnHover) {
-                clearInterval(this.data.intervalId);
+                this.clearIntervalID();
             }
         },
-        // Leave Hover 
+        // Leave Hover
         onMouseOut() {
             //console.log("onMouseOut")
             if (typeof this.data.onMouseOut != "undefined") {
@@ -35,9 +56,9 @@ export default {
         // Set timeout to close
         setTimeout() {
             //console.log("setTimeout")
-            this.data.intervalId = setTimeout(function () {
+            this.intervalId = setTimeout(() => {
                 this.close();
-            }.bind(this), this.data.timeout);
+            }, this.data.timeout);
             //console.log(this.data.intervalId)
         },
         // Clicked Toast

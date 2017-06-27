@@ -8,13 +8,13 @@ new Vue({
         'vue-toastr': window.vueToastr
     },
     methods: {
-        add: function () {
+        add: function() {
             this.$root.$refs.toastr.Add({
                 title: "Sticky",
                 msg: "You can't close",
                 clickClose: false, // Click Close Disable
                 timeout: 0, // Remember defaultTimeout is 5 sec..
-                position: "toast-top-full-width",
+                position: "toast-bottom-center",
                 type: "error"
             });
             this.$root.$refs.toastr.Add({
@@ -22,21 +22,22 @@ new Vue({
                 title: "Sticky2",
                 clickClose: false,
                 timeout: 8000,
-                position: "toast-top-full-width",
+                position: "toast-top-center",
                 type: "error"
             });
             this.$root.$refs.toastr.Add({
-                msg: "onMouseOver,onMouseOut,You cant click close, auto closed 4 sec.. with timeout options closeOnHover enabled",
+                msg: "onMouseOver,onMouseOut,progressbar:false,clickClose:false,closeOnHover:false",
                 title: "Sticky3",
                 clickClose: false,
                 closeOnHover: false, // Enable closeOnHover Options... must be set timeout. Remember defaultTimeout is 5 sec..
                 timeout: 4000,
                 position: "toast-top-full-width",
                 type: "error",
-                onMouseOver: function () {
+                progressbar: false,
+                onMouseOver: function() {
                     alert("onMouseOver");
                 },
-                onMouseOut: function () {
+                onMouseOut: function() {
                     alert("onMouseOut");
                 }
             });
@@ -55,21 +56,22 @@ new Vue({
                 position: 'toast-top-left',
                 timeout: 5000,
                 clickClose: false,
-                onClosed: function () {
-                    alert("onClosed");
+                onClosed: function() {
+                    alert("onClosed VooAaa ");
                 },
-                onCreated: function () {
+                onCreated: function() {
                     // get from test id from toast component.
                     // if component not created you cant access this.
                     alert("onCreated " + document.getElementById("test").innerHTML);
                 },
-                onClicked: function () {
+                onClicked: function() {
                     alert("onClicked");
                 }
             });
             //console.log(VooAaa);
             // You can close manuel this.
-            setTimeout(function () {
+            setTimeout(function() {
+                alert("onClosed VooAaa manual");
                 this.$refs.toastr.Close(VooAaa);
             }.bind(this), 2000);
             //this.$refs.toastr.close(VooAaa);
@@ -77,6 +79,8 @@ new Vue({
             this.$refs.toastr.defaultTimeout = 3000; // default timeout : 5000
             // You Can Change Default Toast Type
             this.$refs.toastr.defaultType = "error"; // default type : success
+            // change global progress bar
+            this.$refs.toastr.defaultProgressBar = false;
             // You Can Change Default Position
             this.$refs.toastr.defaultPosition = "toast-bottom-left" // default position: toast-top-right
             this.$refs.toastr.Add("Default Type Position and timeout is Changed, closed 3 sec.");
