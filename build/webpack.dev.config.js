@@ -12,14 +12,17 @@ module.exports = {
         libraryTarget: "umd"
     },
     resolve: {
-      alias: {
-        vue: 'vue/dist/vue.js'
-      }
+        alias: {
+            vue: 'vue/dist/vue.js'
+        }
     },
     module: {
         loaders: [{
             test: /\.less$/,
             loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
+        }, {
+            test: /\.s[a|c]ss$/,
+            loader: 'style!css!sass'
         }, {
             test: /\.vue$/,
             loader: 'vue'
@@ -45,7 +48,7 @@ module.exports.plugins = [
         }
     }),
     new webpack.optimize.UglifyJsPlugin({
-        sourceMap:true,
+        sourceMap: true,
         compress: {
             warnings: false
         }
