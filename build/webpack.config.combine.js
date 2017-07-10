@@ -11,25 +11,28 @@ module.exports = {
         libraryTarget: "umd"
     },
     resolve: {
-      alias: {
-        vue: 'vue/dist/vue.js'
-      }
+        alias: {
+            vue: 'vue/dist/vue.js'
+        }
     },
     module: {
         loaders: [{
             test: /\.less$/,
             loader: "style!css!less",
         }, {
-            test: /\.vue$/,
-            loader: 'vue'
-        }, {
-            test: /\.html$/,
-            loader: "vue-html"
-        }, {
-            test: /\.js$/,
-            exclude: /node_modules|\/dist/,
-            loader: 'babel'
-        }]
+                test: /\.s[a|c]ss$/,
+                loader: 'style!css!sass'
+            }, {
+                test: /\.vue$/,
+                loader: 'vue'
+            }, {
+                test: /\.html$/,
+                loader: "vue-html"
+            }, {
+                test: /\.js$/,
+                exclude: /node_modules|\/dist/,
+                loader: 'babel'
+            }]
     },
     babel: {
         presets: ['es2015'],
