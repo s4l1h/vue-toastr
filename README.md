@@ -105,6 +105,10 @@ this.$refs.toastr.w("this.$refs.toastr.w message", "Warning");
 ```
 this.$refs.toastr.i("this.$refs.toastr.i message", "Information");
 ```
+#### Remove Toast Messages by type.
+```
+this.$refs.toastr.removeByType("error"); // error, warning, success, info
+```
 #### New Toast Message with default options.
 ```
 this.$refs.toastr.Add("Working on the default options");
