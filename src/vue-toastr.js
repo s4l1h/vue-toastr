@@ -16,6 +16,7 @@ export default {
             defaultCloseOnHover: true,
             defaultTimeout: 5000,
             defaultProgressBar: true,
+            defaultPreventDuplicates: false,
             list,
             index: 0,
         }
@@ -64,6 +65,15 @@ export default {
                 console.log('AddData accept only Object', data)
                 return false
             }
+            if (data.preventDuplicates) {
+                var listKeys = Object.keys(this.list[data.position]);
+                for (var i = 0; i < listKeys.length; i++) {
+                    if (this.list[data.position].title === data.title && this.list[data.position].msg === data.msg) {
+                        console.log('Prevent Dublicates', data)
+                        return false
+                    }
+                }
+            }
             this.addToast(data)
             return data
         },
@@ -86,6 +96,10 @@ export default {
 
                 if (typeof data.closeOnHover === 'undefined') {
                     data.closeOnHover = this.defaultCloseOnHover
+                }
+
+                if (typeof data.preventDuplicates === 'undefined') {
+                    data.preventDuplicates = this.defaultPreventDuplicates;
                 }
                 return data
             }
@@ -142,6 +156,14 @@ export default {
                     if (this.list[this.positions[i]][listKeys[j]]['type'] === toastType) {
                         this.Close(this.list[this.positions[i]][listKeys[j]]);
                     }
+                }
+            }
+        },
+        clearAll() {
+            for (var i = 0; i < this.positions.length; i++) {
+                var listKeys = Object.keys(this.list[this.positions[i]]);
+                for (var j = 0; j < listKeys.length; j++) {
+                    this.Close(this.list[this.positions[i]][listKeys[j]]);
                 }
             }
         },
