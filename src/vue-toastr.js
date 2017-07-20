@@ -134,6 +134,16 @@ export default {
         Close(data) {
             // console.log(data)
             this.removeToast(data)
-        }
+        },
+        removeByType(toastType) {
+            for (var i = 0; i < this.positions.length; i++) {
+                var listKeys = Object.keys(this.list[this.positions[i]]);
+                for (var j = 0; j < listKeys.length; j++) {
+                    if (this.list[this.positions[i]][listKeys[j]]['type'] === toastType) {
+                        this.Close(this.list[this.positions[i]][listKeys[j]]);
+                    }
+                }
+            }
+        },
     }
 }
