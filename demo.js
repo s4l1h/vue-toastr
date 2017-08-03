@@ -74,6 +74,11 @@ new Vue({
                 alert("onClosed VooAaa manual");
                 this.$refs.toastr.Close(VooAaa);
             }.bind(this), 2000);
+
+            setTimeout(function() {
+                alert("onClosed by type warning");
+                this.$refs.toastr.removeByType("warning");
+            }.bind(this), 1000);
             //this.$refs.toastr.close(VooAaa);
             // You Can Change Default Toast Type
             this.$refs.toastr.defaultTimeout = 3000; // default timeout : 5000
