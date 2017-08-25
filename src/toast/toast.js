@@ -20,14 +20,14 @@ export default {
                 this.progressbar = true;
             }
             this.setTimeout();
-        } else if (this.data.progressBarStartValue !== null && this.data.progressbar != false) {
+        } else if (this.data.progressBarValue !== null && this.data.progressbar != false) {
             this.progressbar = true;
         }
     },
     watch: {
         data: {
             handler: function (val, oldVal) {
-                this.setProgressBarValue(val.progressBarStartValue);
+                this.setProgressBarValue(val.progressBarValue);
             },
             deep: true,
         },
@@ -73,7 +73,7 @@ export default {
         },
         // Set progress bar value if manually managed
         setProgressBarValue(newValue) {
-            if (this.data.progressBarStartValue !== null) {
+            if (this.data.progressBarValue !== null) {
                 this.$refs.progressBar.setValue(newValue);
             }
         },

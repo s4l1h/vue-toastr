@@ -5,7 +5,7 @@ export default {
         return {
             intervalId: false,
             hideEta: false,
-            progressBarValue: this.data.progressBarStartValue,
+            progressBarValue: this.data.progressBarValue,
             style: {
                 width: '100%'
             }
