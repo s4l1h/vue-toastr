@@ -16,6 +16,7 @@ export default {
             defaultCloseOnHover: true,
             defaultTimeout: 5000,
             defaultProgressBar: true,
+            defaultProgressBarValue: null,
             defaultPreventDuplicates: false,
             list,
             index: 0,
@@ -57,6 +58,12 @@ export default {
                 }
             }
         },
+        setProgress(data, newValue) {
+            var item = this.list[data.position][data.index];
+            if (typeof item != "undefined") {
+                this.$set(item, 'progressBarValue', newValue);
+            }
+        },
         Add(d) {
             return this.AddData(this.processObjectData(d))
         },
@@ -93,6 +100,10 @@ export default {
                 if (typeof data.progressbar === 'undefined') {
                     data.progressBar = this.defaultProgressBar
                 }
+                // should progressBar be bound to timer or is set manually ?
+                if (typeof data.progressBarValue === 'undefined') {
+                    data.progressBarValue = this.defaultProgressBarValue
+                }
 
                 if (typeof data.closeOnHover === 'undefined') {
                     data.closeOnHover = this.defaultCloseOnHover
@@ -110,7 +121,8 @@ export default {
                 type: this.defaultType,
                 timeout: this.defaultTimeout,
                 closeOnHover: this.defaultCloseOnHover,
-                progressBar: this.defaultProgressBar
+                progressBar: this.defaultProgressBar,
+                progressBarValue: this.defaultProgressBarValue
             }
         },
         e(msg, title) {

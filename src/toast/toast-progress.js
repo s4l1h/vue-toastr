@@ -5,14 +5,19 @@ export default {
         return {
             intervalId: false,
             hideEta: false,
+            progressBarValue: this.data.progressBarValue,
             style: {
                 width: '100%'
             }
         }
     },
     mounted() {
-        this.hideEta = new Date().getTime() + this.data.timeout;
-        this.setTimer();
+        if (this.progressBarValue === null) {
+            this.hideEta = new Date().getTime() + this.data.timeout;
+            this.setTimer();
+        } else {
+            this.updateProgress();
+        }
     },
     destroyed() {
         clearInterval(this.intervalId);
@@ -25,12 +30,22 @@ export default {
             }, 10);
             //console.log(this.data.intervalId)
         },
+        setValue(newValue) {
+            this.progressBarValue = newValue;
+            this.updateProgress();
+        },
         updateProgress() {
-            var diff = ((this.hideEta - (new Date().getTime())));
-            var percentage = (diff / this.data.timeout) * 100;
-            percentage = Math.floor(percentage);
-            // console.log(diff, this.data.timeout, percentage)
-            this.style.width = percentage + '%';
+            var percentage;
+            if (this.progressBarValue === null) {
+                var diff = ((this.hideEta - (new Date().getTime())));
+                percentage = (diff / this.data.timeout) * 100;
+                percentage = Math.floor(percentage);
+                // console.log(diff, this.data.timeout, percentage)
+                this.style.width = percentage + '%';
+            } else {
+                percentage = Math.floor(this.progressBarValue);
+                this.style.width = percentage + '%';
+            }
         }
     }
 

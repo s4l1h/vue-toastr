@@ -75,6 +75,10 @@ this.$refs.toastr.defaultTimeout = 3000; // default timeout : 5000
 ```
 this.$refs.toastr.defaultProgressBar = false; // default active : true
 ```
+#### Change Default Toast ProgressBar Manual Value
+```
+this.$refs.toastr.defaultProgressBarValue = 0; // default value : null (managed by JS timer)
+```
 #### Change Default Toast Type
 ```
 this.$refs.toastr.defaultType = "error"; // default type : success
@@ -120,6 +124,7 @@ this.$root.$refs.toastr.Add({
     msg: "Hi", // Message
     clickClose: false, // Click Close Disable
     timeout: 0, // Remember defaultTimeout is 5 sec..
+    progressBarValue: 0, // Manually update progress bar value later; null (not 0) is default
     position: "toast-top-full-width", // Toast Position.
     type: "error" // Toast type
 });
@@ -132,7 +137,8 @@ this.$root.$refs.toastr.Add({
         position: Toast position string can be  'toast-top-right', 'toast-bottom-right', 'toast-bottom-left', 'toast-top-left', 'toast-top-full-width', 'toast-bottom-full-width', 'toast-top-center', 'toast-bottom-center' ; default toast-top-right
         type: Toast type can be : info,warning,error,success ; default success
         timeout: Toast Timeout for auto close can be integer ; default 5000
-        progressbar: Progress Bar option need timeout. can be boolean; default true
+        progressbar: Progress Bar option need timeout or progressBarValue. can be boolean; default true
+        progressBarValue: Initial value of the progress bar in percents (0..100), default null which does mean the progress bar is controlled by timeout; use this.$root.$refs.toastr.setProgress(aToast, newValue) later
         closeOnHover: On mouse over stop timeout can be boolean; default true
         clickClose: On click toast close can be boolean; default false
         onCreated: On created toast event can be function

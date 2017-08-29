@@ -20,7 +20,17 @@ export default {
                 this.progressbar = true;
             }
             this.setTimeout();
+        } else if (this.data.progressBarValue !== null && this.data.progressbar != false) {
+            this.progressbar = true;
         }
+    },
+    watch: {
+        data: {
+            handler: function (val, oldVal) {
+                this.setProgressBarValue(val.progressBarValue);
+            },
+            deep: true,
+        },
     },
     beforeDestroy() {
         this.clearIntervalID();
@@ -60,6 +70,12 @@ export default {
                 this.close();
             }, this.data.timeout);
             //console.log(this.data.intervalId)
+        },
+        // Set progress bar value if manually managed
+        setProgressBarValue(newValue) {
+            if (this.data.progressBarValue !== null) {
+                this.$refs.progressBar.setValue(newValue);
+            }
         },
         // Clicked Toast
         clicked() {
