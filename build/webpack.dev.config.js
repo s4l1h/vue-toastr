@@ -1,4 +1,3 @@
-var vue = require('vue-loader')
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var webpack = require('webpack')
 module.exports = {
@@ -22,7 +21,8 @@ module.exports = {
             loader: ExtractTextPlugin.extract("style-loader", "css-loader!less-loader")
         }, {
             test: /\.s[a|c]ss$/,
-            loader: 'style!css!sass'
+            loader: ExtractTextPlugin.extract("style-loader", "css-loader!sass-loader")
+            
         }, {
             test: /\.vue$/,
             loader: 'vue'

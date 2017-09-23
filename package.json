@@ -1,6 +1,6 @@
 {
     "name": "vue-toastr",
-    "version": "2.0.8",
+    "version": "2.0.9",
     "description": "Toastr for Vue.js no jquery dependencies",
     "main": "./dist/vue-toastr.min.js",
     "dependencies": {},
@@ -18,13 +18,13 @@
         "less": "^2.7.1",
         "less-loader": "^2.2.3",
         "node-sass": "^4.5.3",
-        "sass-loader": "^6.0.5",
+        "sass-loader": "4.1.1",
         "style-loader": "^0.13.1",
         "vue-hot-reload-api": "^2.0.6",
         "vue-html-loader": "^1.2.3",
         "vue-loader": "^9.x",
         "vue-style-loader": "^1.0.0",
-        "webpack": "^1.13.2",
+        "webpack": "^1.15.0",
         "webpack-dev-server": "^1.16.2"
     },
     "scripts": {
