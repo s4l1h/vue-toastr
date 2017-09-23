@@ -98,7 +98,7 @@ export default {
                 }
                 // have progressBar ?
                 if (typeof data.progressbar === 'undefined') {
-                    data.progressBar = this.defaultProgressBar
+                    data.progressbar = this.defaultProgressBar
                 }
                 // should progressBar be bound to timer or is set manually ?
                 if (typeof data.progressBarValue === 'undefined') {
@@ -121,7 +121,7 @@ export default {
                 type: this.defaultType,
                 timeout: this.defaultTimeout,
                 closeOnHover: this.defaultCloseOnHover,
-                progressBar: this.defaultProgressBar,
+                progressbar: this.defaultProgressBar,
                 progressBarValue: this.defaultProgressBarValue
             }
         },
