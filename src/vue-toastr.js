@@ -75,8 +75,8 @@ export default {
             if (data.preventDuplicates) {
                 var listKeys = Object.keys(this.list[data.position]);
                 for (var i = 0; i < listKeys.length; i++) {
-                    if (this.list[data.position].title === data.title && this.list[data.position].msg === data.msg) {
-                        console.log('Prevent Dublicates', data)
+                    if (this.list[data.position][listKeys[i]].title === data.title && this.list[data.position][listKeys[i]].msg === data.msg) {
+                        console.log('Prevent Duplicates', data)
                         return false
                     }
                 }
@@ -122,7 +122,8 @@ export default {
                 timeout: this.defaultTimeout,
                 closeOnHover: this.defaultCloseOnHover,
                 progressbar: this.defaultProgressBar,
-                progressBarValue: this.defaultProgressBarValue
+                progressBarValue: this.defaultProgressBarValue,
+                preventDuplicates: this.defaultPreventDuplicates
             }
         },
         e(msg, title) {
