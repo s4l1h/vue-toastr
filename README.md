@@ -17,7 +17,7 @@
 
 *Add the Toast into the package.json. #for vue **2.x***
 
-    npm install vue-toastr@^latest --save
+    npm install vue-toastr@latest --save
 
 *Add the toast in application and register component.*
 
