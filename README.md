@@ -27,6 +27,17 @@
     require('vue-toastr/src/vue-toastr.less');
     // Register vue component
     Vue.component('vue-toastr',Toastr);
+***Plugin** mode (work only vue 2.x)* 
+
+    // import Toastr
+    import Toastr from 'vue-toastr';
+    // import toastr less file: need webpack less-loader
+    require('vue-toastr/src/vue-toastr.less');
+    // Register plugin
+    Vue.use(Toastr);
+***Plugin** Mode vue **2.x***
+
+    this.$toastr // use plugin mode autoamatic installed if you use browser.
 
 *Add component html: for vue **1.x***
 

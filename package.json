@@ -1,6 +1,6 @@
 {
     "name": "vue-toastr",
-    "version": "2.0.11",
+    "version": "2.0.12",
     "description": "Toastr for Vue.js no jquery dependencies",
     "main": "./dist/vue-toastr.min.js",
     "dependencies": {},
@@ -25,7 +25,16 @@
         "vue-loader": "^9.x",
         "vue-style-loader": "^1.0.0",
         "webpack": "^1.15.0",
-        "webpack-dev-server": "^1.16.2"
+        "webpack-dev-server": "^1.16.2",
+        "eslint": "^4.12.1",
+        "eslint-config-standard": "^10.2.1",
+        "eslint-friendly-formatter": "^3.0.0",
+        "eslint-loader": "^1.7.1",
+        "eslint-plugin-html": "^4.0.1",
+        "eslint-plugin-import": "^2.8.0",
+        "eslint-plugin-node": "^5.2.1",
+        "eslint-plugin-promise": "^3.4.0",
+        "eslint-plugin-standard": "^3.0.1"
     },
     "scripts": {
         "dev": "webpack-dev-server --inline --hot --quiet --config build/webpack.dev.config.js",
