@@ -47,10 +47,14 @@
 
     <vue-toastr ref="toastr"></vue-toastr>
 
-*Now you can manage toastr* 
+*Now you can manage toastr*
 
+    // use component
     this.$root.$refs.toastr.e("ERRROR MESSAGE");
     this.$root.$refs.toastr.s("SUCCESS MESSAGE");
+    // use plugin
+    this.$toastr.e("ERRROR MESSAGE");
+    this.$toastr.s("SUCCESS MESSAGE");    
 
 ### without npm
 
