@@ -141,7 +141,8 @@ this.$root.$refs.toastr.Add({
     timeout: 0, // Remember defaultTimeout is 5 sec..
     progressBarValue: 0, // Manually update progress bar value later; null (not 0) is default
     position: "toast-top-full-width", // Toast Position.
-    type: "error" // Toast type
+    type: "error" // Toast type,
+    preventDuplicates: true //Default is false
 });
 ```
 ## Doc # Options
