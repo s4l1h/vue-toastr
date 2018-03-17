@@ -23,16 +23,17 @@
 
     // import Toastr
     import Toastr from 'vue-toastr';
-    // import toastr less file: need webpack less-loader
-    require('vue-toastr/src/vue-toastr.less');
+    // import toastr scss file: need webpack sass-loader
+    require('vue-toastr/src/vue-toastr.scss
+    ');
     // Register vue component
     Vue.component('vue-toastr',Toastr);
 ***Plugin** mode (work only vue 2.x)* 
 
     // import Toastr
     import Toastr from 'vue-toastr';
-    // import toastr less file: need webpack less-loader
-    require('vue-toastr/src/vue-toastr.less');
+    // import toastr scss file: need webpack sass-loader
+    require('vue-toastr/src/vue-toastr.scss');
     // Register plugin
     Vue.use(Toastr);
 ***Plugin** Mode vue **2.x***
