@@ -108,6 +108,11 @@ this.$refs.toastr.defaultPosition = "toast-bottom-left" // default position: toa
 this.$refs.toastr.defaultCloseOnHover = false // default close on hover: true
 ```
 
+#### Change Default Style
+```
+this.$refs.toastr.defaultStyle = { background-color: 'red' } // default style of toast: {} (empty object)
+```
+
 ## Doc # method
 #### New Error Type Toast Message
 ```
@@ -143,7 +148,8 @@ this.$root.$refs.toastr.Add({
     progressBarValue: 0, // Manually update progress bar value later; null (not 0) is default
     position: "toast-top-full-width", // Toast Position.
     type: "error" // Toast type,
-    preventDuplicates: true //Default is false
+    preventDuplicates: true //Default is false,
+    style: { background-color: 'red' } // bind inline style to toast (check (Vue docs)[https://vuejs.org/v2/guide/class-and-style.html#Binding-Inline-Styles] for more examples)
 });
 ```
 ## Doc # Options
@@ -156,6 +162,7 @@ this.$root.$refs.toastr.Add({
         timeout: Toast Timeout for auto close can be integer ; default 5000
         progressbar: Progress Bar option need timeout or progressBarValue. can be boolean; default true
         progressBarValue: Initial value of the progress bar in percents (0..100), default null which does mean the progress bar is controlled by timeout; use this.$root.$refs.toastr.setProgress(aToast, newValue) later
+        style: Inline style option should be an object with key: value structure. default { } (empty object)
         closeOnHover: On mouse over stop timeout can be boolean; default true
         clickClose: On click toast close can be boolean; default false
         onCreated: On created toast event can be function
