@@ -19,7 +19,8 @@ export default {
       defaultProgressBarValue: null,
       defaultPreventDuplicates: false,
       list,
-      index: 0
+      index: 0,
+      defaultStyle: {}
     }
   },
   created () {
@@ -112,6 +113,11 @@ export default {
         if (typeof data.preventDuplicates === 'undefined') {
           data.preventDuplicates = this.defaultPreventDuplicates
         }
+
+        if (typeof data.style === 'undefined') {
+          data.style = this.defaultStyle
+        }
+
         return data
       }
       // if String
