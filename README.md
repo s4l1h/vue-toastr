@@ -28,7 +28,7 @@
     ');
     // Register vue component
     Vue.component('vue-toastr',Toastr);
-***Plugin** mode (work only vue 2.x)* 
+***Plugin** mode (work only vue 2.x)*
 
     // import Toastr
     import Toastr from 'vue-toastr';
@@ -55,7 +55,7 @@
     this.$root.$refs.toastr.s("SUCCESS MESSAGE");
     // use plugin
     this.$toastr.e("ERRROR MESSAGE");
-    this.$toastr.s("SUCCESS MESSAGE");    
+    this.$toastr.s("SUCCESS MESSAGE");
 
 ### without npm
 
@@ -134,6 +134,10 @@ this.$refs.toastr.i("this.$refs.toastr.i message", "Information");
 ```
 this.$refs.toastr.removeByType("error"); // error, warning, success, info
 ```
+#### Remove Toast Messages by Name.
+```
+this.$refs.toastr.removeByName("UniqueToastName");
+```
 #### New Toast Message with default options.
 ```
 this.$refs.toastr.Add("Working on the default options");
@@ -141,6 +145,7 @@ this.$refs.toastr.Add("Working on the default options");
 #### New Toast Message with options.
 ```
 this.$root.$refs.toastr.Add({
+    name: "UniqueToastName", // Toast Name now you can remove by name
     title: "Easy Toast", // Toast Title
     msg: "Hi", // Message
     clickClose: false, // Click Close Disable
@@ -155,8 +160,9 @@ this.$root.$refs.toastr.Add({
 ## Doc # Options
 ```
 {
+        name: "Name Of The Toast",
         title: "Toast Title",
-        msg: "Toast Msg", 
+        msg: "Toast Msg",
         position: Toast position string can be  'toast-top-right', 'toast-bottom-right', 'toast-bottom-left', 'toast-top-left', 'toast-top-full-width', 'toast-bottom-full-width', 'toast-top-center', 'toast-bottom-center' ; default toast-top-right
         type: Toast type can be : info,warning,error,success ; default success
         timeout: Toast Timeout for auto close can be integer ; default 5000
@@ -174,7 +180,7 @@ this.$root.$refs.toastr.Add({
 ```
 
 ### Note:
-Pls for more details and example: 
+Pls for more details and example:
 https://github.com/s4l1h/vue-toastr/blob/master/demo.js
 
 

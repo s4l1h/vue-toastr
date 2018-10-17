@@ -22,6 +22,9 @@
                 <button type="button" name="button" @click="add">
                         SHOW ME
                 </button>
+                <button v-if="showRemoveButton" type="button" @click="removeSticky">
+                  Remove Sticky Toast By Name
+                </button>
             </p>
         </div>
         <vue-toastr ref="toastr">

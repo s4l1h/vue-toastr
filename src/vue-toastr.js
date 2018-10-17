@@ -20,7 +20,8 @@ export default {
       defaultPreventDuplicates: false,
       list,
       index: 0,
-      defaultStyle: {}
+      defaultStyle: {},
+      savedNames: {}
     }
   },
   created () {
@@ -37,12 +38,21 @@ export default {
       this.index++
       data['index'] = this.index
       this.$set(this.list[data.position], this.index, data)
+      if (typeof data['name'] !== 'undefined') {
+        this.$set(this.savedNames, data['name'], data)
+      }
       // if have onCreated
       if (typeof data.onCreated !== 'undefined') {
         // wait doom update after call cb
         this.$nextTick(() => {
           data.onCreated()
         })
+      }
+    },
+    removeByName (name) {
+      if (typeof this.savedNames[name] !== 'undefined') {
+        this.Close(this.savedNames[name])
+        this.$delete(this.savedNames, name)
       }
     },
     removeToast (data) {

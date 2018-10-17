@@ -3,7 +3,9 @@
 var app = new Vue({
   el: '#app',
   data: function data () {
-    return {}
+    return {
+      showRemoveButton: false
+    }
   },
   mounted () {
     this.$toastr.defaultPosition = 'toast-top-center'
@@ -13,14 +15,21 @@ var app = new Vue({
     'vue-toastr': window.vueToastr
   },
   methods: {
+    removeSticky () {
+      this.$root.$refs.toastr.removeByName('stickyToast')
+    },
     add: function () {
       this.$root.$refs.toastr.Add({
+        name: 'stickyToast',
         title: 'Sticky',
-        msg: "You can't close",
+        msg: "You can't close and my name is 'stickyToast'",
         clickClose: false, // Click Close Disable
         timeout: 0, // Remember defaultTimeout is 5 sec..
         position: 'toast-bottom-center',
-        type: 'error'
+        type: 'error',
+        onCreated: function () {
+          this.showRemoveButton = true
+        }.bind(this)
       })
       this.$root.$refs.toastr.Add({
         msg: 'You cant click close, auto closed 8 sec.. with timeout options',

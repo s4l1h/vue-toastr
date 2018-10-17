@@ -1,8 +1,8 @@
 {
     "name": "vue-toastr",
-    "version": "2.0.14",
+    "version": "2.0.15",
     "description": "Toastr for Vue.js no jquery dependencies",
-    "main": "./dist/vue-toastr.min.js",
+    "main": "./dist/vue-toastr.js",
     "dependencies": {},
     "devDependencies": {
         "babel-core": "^6.1.21",
