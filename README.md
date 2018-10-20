@@ -152,9 +152,9 @@ this.$root.$refs.toastr.Add({
     timeout: 0, // Remember defaultTimeout is 5 sec..
     progressBarValue: 0, // Manually update progress bar value later; null (not 0) is default
     position: "toast-top-full-width", // Toast Position.
-    type: "error" // Toast type,
-    preventDuplicates: true //Default is false,
-    style: { background-color: 'red' } // bind inline style to toast (check (Vue docs)[https://vuejs.org/v2/guide/class-and-style.html#Binding-Inline-Styles] for more examples)
+    type: "error", // Toast type,
+    preventDuplicates: true, //Default is false,
+    style: { backgroundColor: 'blue',width:'150px' } // bind inline style to toast (check (Vue docs)[https://vuejs.org/v2/guide/class-and-style.html#Binding-Inline-Styles] for more examples)
 });
 ```
 ## Doc # Options
