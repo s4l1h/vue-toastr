@@ -26,7 +26,7 @@ export default {
     }
   },
   created () {
-    // console.log("created")
+    // console.log("Created");
   },
   mounted () {
     // console.log("ready", this.list);
@@ -136,6 +136,7 @@ export default {
         }
         return data
       }
+      // if String
       return {
         msg: data.toString(),
         position: this.defaultPosition,
