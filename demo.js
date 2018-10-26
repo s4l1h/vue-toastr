@@ -1,5 +1,5 @@
 'use strict'
-// Vue.use(window.vueToastr)
+// Vue.use(window.vueToastr, /* { defaultProgressBar: false } */)
 var app = new Vue({
   el: '#app',
   data: function data () {

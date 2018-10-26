@@ -35,7 +35,7 @@
     // import toastr scss file: need webpack sass-loader
     require('vue-toastr/src/vue-toastr.scss');
     // Register plugin
-    Vue.use(Toastr);
+    Vue.use(Toastr, { /* options */ });
 ***Plugin** Mode vue **2.x***
 
     this.$toastr // use plugin mode autoamatic installed if you use browser.
@@ -83,6 +83,8 @@ npm run buildAll
 
 ## Doc # Overwrite Settings
 
+### Overwrite inside component
+
 #### Change Default Toast Timeout
 ```
 this.$refs.toastr.defaultTimeout = 3000; // default timeout : 5000
@@ -107,10 +109,23 @@ this.$refs.toastr.defaultPosition = "toast-bottom-left" // default position: toa
 ```
 this.$refs.toastr.defaultCloseOnHover = false // default close on hover: true
 ```
-
 #### Change Default Style
 ```
-this.$refs.toastr.defaultStyle = { background-color: 'red' } // default style of toast: {} (empty object)
+this.$refs.toastr.defaultStyle = { "background-color": "red" } // default style: { }
+```
+
+### Overwrite via plugin options
+*You can also overwrite defaults by passing options object during plugin registration*
+```
+Vue.use(Toastr, { 
+	defaultTimeout: 3000,
+	defaultProgressBar: false,
+	defaultProgressBarValue: 0,
+	defaultType: "error",
+	defaultPosition: "toast-bottom-left",
+	defaultCloseOnHover: false,
+	defaultStyle: { "background-color": "red" }
+})
 ```
 
 ## Doc # method
@@ -154,7 +169,7 @@ this.$root.$refs.toastr.Add({
     position: "toast-top-full-width", // Toast Position.
     type: "error", // Toast type,
     preventDuplicates: true, //Default is false,
-    style: { backgroundColor: 'blue',width:'150px' } // bind inline style to toast (check (Vue docs)[https://vuejs.org/v2/guide/class-and-style.html#Binding-Inline-Styles] for more examples)
+    style: { backgroundColor: 'blue',width:'150px' } // bind inline style to toast  (check [Vue doc](https://vuejs.org/v2/guide/class-and-style.html#Binding-Inline-Styles) for more examples)
 });
 ```
 ## Doc # Options
