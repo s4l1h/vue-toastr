@@ -3,6 +3,7 @@ import toast from './toast/toast.js'
 export default {
   template: template,
   name: 'vueToastr',
+  props: ['options'],
   data () {
     var positions = ['toast-top-right', 'toast-bottom-right', 'toast-bottom-left', 'toast-top-left', 'toast-top-full-width', 'toast-bottom-full-width', 'toast-top-center', 'toast-bottom-center']
     var list = {}
@@ -11,16 +12,16 @@ export default {
     }
     return {
       positions,
-      defaultPosition: 'toast-top-right',
-      defaultType: 'success',
-      defaultCloseOnHover: true,
-      defaultTimeout: 5000,
-      defaultProgressBar: true,
-      defaultProgressBarValue: null,
-      defaultPreventDuplicates: false,
+      defaultPosition: this.processOption('defaultPosition', 'toast-top-right'),
+      defaultType: this.processOption('defaultType', 'success'),
+      defaultCloseOnHover: this.processOption('defaultCloseOnHover', true),
+      defaultTimeout: this.processOption('defaultTimeout', 5000),
+      defaultProgressBar: this.processOption('defaultProgressBar', true),
+      defaultProgressBarValue: this.processOption('defaultProgressBarValue', null),
+      defaultPreventDuplicates: this.processOption('defaultPreventDuplicates', false),
+      defaultStyle: this.processOption('defaultStyle', {}),
       list,
       index: 0,
-      defaultStyle: {},
       savedNames: {}
     }
   },
@@ -95,6 +96,12 @@ export default {
       this.addToast(data)
       return data
     },
+    processOption (optionValue, defaultValue) {
+      if (!this.options) {
+        return defaultValue
+      }
+      return typeof this.options[optionValue] !== 'undefined' ? this.options[optionValue] : defaultValue
+    },
     processObjectData (data) {
       // if Object
       if (typeof data === 'object' && typeof data.msg !== 'undefined') {
@@ -127,7 +134,6 @@ export default {
         if (typeof data.style === 'undefined') {
           data.style = this.defaultStyle
         }
-
         return data
       }
       // if String
@@ -139,7 +145,8 @@ export default {
         closeOnHover: this.defaultCloseOnHover,
         progressbar: this.defaultProgressBar,
         progressBarValue: this.defaultProgressBarValue,
-        preventDuplicates: this.defaultPreventDuplicates
+        preventDuplicates: this.defaultPreventDuplicates,
+        style: this.defaultStyle
       }
     },
     e (msg, title) {

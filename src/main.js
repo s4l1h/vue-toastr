@@ -9,9 +9,14 @@ vueToastr.install = function (Vue, options) {
   // console.log("install vuetoastr")
   // Create component instance
   let MyComponent = Vue.extend({
-    template: '<vue-toastr ref="vueToastr"></vue-toastr>',
+    template: '<vue-toastr :options="options" ref="vueToastr"></vue-toastr>',
     components: {
       'vue-toastr': vueToastr
+    },
+    data: function () {
+      return {
+        options: options || {}
+      }
     }
   })
   // or, render off-document and append afterwards:

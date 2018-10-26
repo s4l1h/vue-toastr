@@ -73,9 +73,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	  // console.log("install vuetoastr")
 	  // Create component instance
 	  var MyComponent = Vue.extend({
-	    template: '<vue-toastr ref="vueToastr"></vue-toastr>',
+	    template: '<vue-toastr :options="options" ref="vueToastr"></vue-toastr>',
 	    components: {
 	      'vue-toastr': _vueToastr2.default
+	    },
+	    data: function data() {
+	      return {
+	        options: options || {}
+	      };
 	    }
 	  });
 	  // or, render off-document and append afterwards:
@@ -530,6 +535,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.default = {
 	  template: _vueToastr2.default,
 	  name: 'vueToastr',
+	  props: ['options'],
 	  data: function data() {
 	    var positions = ['toast-top-right', 'toast-bottom-right', 'toast-bottom-left', 'toast-top-left', 'toast-top-full-width', 'toast-bottom-full-width', 'toast-top-center', 'toast-bottom-center'];
 	    var list = {};
@@ -538,16 +544,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	    return {
 	      positions: positions,
-	      defaultPosition: 'toast-top-right',
-	      defaultType: 'success',
-	      defaultCloseOnHover: true,
-	      defaultTimeout: 5000,
-	      defaultProgressBar: true,
-	      defaultProgressBarValue: null,
-	      defaultPreventDuplicates: false,
+	      defaultPosition: this.processOption('defaultPosition', 'toast-top-right'),
+	      defaultType: this.processOption('defaultType', 'success'),
+	      defaultCloseOnHover: this.processOption('defaultCloseOnHover', true),
+	      defaultTimeout: this.processOption('defaultTimeout', 5000),
+	      defaultProgressBar: this.processOption('defaultProgressBar', true),
+	      defaultProgressBarValue: this.processOption('defaultProgressBarValue', null),
+	      defaultPreventDuplicates: this.processOption('defaultPreventDuplicates', false),
+	      defaultStyle: this.processOption('defaultStyle', {}),
 	      list: list,
 	      index: 0,
-	      defaultStyle: {},
 	      savedNames: {}
 	    };
 	  },
@@ -623,6 +629,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	      this.addToast(data);
 	      return data;
 	    },
+	    processOption: function processOption(optionValue, defaultValue) {
+	      if (!this.options) {
+	        return defaultValue;
+	      }
+	      return typeof this.options[optionValue] !== 'undefined' ? this.options[optionValue] : defaultValue;
+	    },
 	    processObjectData: function processObjectData(data) {
 	      // if Object
 	      if ((typeof data === 'undefined' ? 'undefined' : (0, _typeof3.default)(data)) === 'object' && typeof data.msg !== 'undefined') {
@@ -655,7 +667,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (typeof data.style === 'undefined') {
 	          data.style = this.defaultStyle;
 	        }
-	
 	        return data;
 	      }
 	      // if String
@@ -667,7 +678,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        closeOnHover: this.defaultCloseOnHover,
 	        progressbar: this.defaultProgressBar,
 	        progressBarValue: this.defaultProgressBarValue,
-	        preventDuplicates: this.defaultPreventDuplicates
+	        preventDuplicates: this.defaultPreventDuplicates,
+	        style: this.defaultStyle
 	      };
 	    },
 	    e: function e(msg, title) {
