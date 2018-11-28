@@ -1,7 +1,29 @@
-import template from './vue-toastr.html'
 import toast from './toast/toast.js'
 export default {
-  template: template,
+  render: function (createElement) {
+    var toastContainers = []
+    for (var i = 0; i < this.positions.length; i++) {
+      var position = this.positions[i]
+      var toastNodes = []
+
+      var listKeys = Object.keys(this.list[position])
+      for (var j = 0; j < listKeys.length; j++) {
+        var index = listKeys[j]
+        toastNodes.push(createElement('toast', {
+          props: {
+            data: this.list[position][index]
+          },
+          key: index
+        }))
+      }
+
+      toastContainers.push(createElement('div', {
+        class: 'toast-container ' + position,
+        key: position
+      }, toastNodes))
+    }
+    return createElement('div', toastContainers)
+  },
   name: 'vueToastr',
   props: ['options'],
   data () {
