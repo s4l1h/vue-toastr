@@ -1,7 +1,0 @@
-<div v-bind:style="data.style" v-bind:class="'toast toast-' + data.type" style="display: block;" @click="clicked()" v-on:mouseover="onMouseOver" v-on:mouseout="onMouseOut">
-    <toast-progress v-if="progressbar" :data="data" ref="progressBar"></toast-progress>
-    <div class="toast-title" v-html="data.title">
-    </div>
-    <div class="toast-message" v-html="data.msg">
-    </div>
-</div>
