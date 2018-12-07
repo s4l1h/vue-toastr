@@ -60,11 +60,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _vueToastr = __webpack_require__(17);
+	var _vueToastr = __webpack_require__(19);
 	
 	var _vueToastr2 = _interopRequireDefault(_vueToastr);
 	
-	__webpack_require__(41);
+	__webpack_require__(45);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -73,7 +73,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	  // console.log("install vuetoastr")
 	  // Create component instance
 	  var MyComponent = Vue.extend({
-	    template: '<vue-toastr :options="options" ref="vueToastr"></vue-toastr>',
+	    render: function render(createElement) {
+	      return createElement(_vueToastr2.default, {
+	        props: {
+	          options: options
+	        },
+	        ref: 'vueToastr'
+	      });
+	    },
 	    components: {
 	      'vue-toastr': _vueToastr2.default
 	    },
@@ -132,15 +139,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 3 */
 /***/ (function(module, exports) {
 
-	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
-	var global = module.exports = typeof window != 'undefined' && window.Math == Math
-	  ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
-	if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
 	module.exports = function(exec){
 	  try {
 	    return !!exec();
@@ -150,52 +148,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
+/* 4 */
+/***/ (function(module, exports) {
+
+	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
+	var global = module.exports = typeof window != 'undefined' && window.Math == Math
+	  ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
+	if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
+
+/***/ }),
 /* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	// to indexed object, toObject with fallback for non-array-like ES3 strings
-	var IObject = __webpack_require__(29)
-	  , defined = __webpack_require__(7);
-	module.exports = function(it){
-	  return IObject(defined(it));
-	};
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports) {
-
-	var toString = {}.toString;
-	
-	module.exports = function(it){
-	  return toString.call(it).slice(8, -1);
-	};
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports) {
-
-	// 7.2.1 RequireObjectCoercible(argument)
-	module.exports = function(it){
-	  if(it == undefined)throw TypeError("Can't call method on  " + it);
-	  return it;
-	};
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// Thank's IE8 for his funny defineProperty
-	module.exports = !__webpack_require__(4)(function(){
-	  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
-	});
-
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	var global    = __webpack_require__(3)
+	var global    = __webpack_require__(4)
 	  , core      = __webpack_require__(2)
-	  , ctx       = __webpack_require__(25)
+	  , ctx       = __webpack_require__(29)
 	  , PROTOTYPE = 'prototype';
 	
 	var $export = function(type, name, source){
@@ -241,6 +208,46 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = $export;
 
 /***/ }),
+/* 6 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// to indexed object, toObject with fallback for non-array-like ES3 strings
+	var IObject = __webpack_require__(11)
+	  , defined = __webpack_require__(8);
+	module.exports = function(it){
+	  return IObject(defined(it));
+	};
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports) {
+
+	var toString = {}.toString;
+	
+	module.exports = function(it){
+	  return toString.call(it).slice(8, -1);
+	};
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports) {
+
+	// 7.2.1 RequireObjectCoercible(argument)
+	module.exports = function(it){
+	  if(it == undefined)throw TypeError("Can't call method on  " + it);
+	  return it;
+	};
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// Thank's IE8 for his funny defineProperty
+	module.exports = !__webpack_require__(3)(function(){
+	  return Object.defineProperty({}, 'a', {get: function(){ return 7; }}).a != 7;
+	});
+
+/***/ }),
 /* 10 */
 /***/ (function(module, exports) {
 
@@ -251,6 +258,16 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ }),
 /* 11 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// fallback for non-array-like ES3 and non-enumerable old V8 strings
+	var cof = __webpack_require__(7);
+	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
+	  return cof(it) == 'String' ? it.split('') : Object(it);
+	};
+
+/***/ }),
+/* 12 */
 /***/ (function(module, exports) {
 
 	module.exports = function(bitmap, value){
@@ -263,10 +280,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var global = __webpack_require__(3)
+	var global = __webpack_require__(4)
 	  , SHARED = '__core-js_shared__'
 	  , store  = global[SHARED] || (global[SHARED] = {});
 	module.exports = function(key){
@@ -274,7 +291,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 13 */
+/* 14 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// 7.1.13 ToObject(argument)
+	var defined = __webpack_require__(8);
+	module.exports = function(it){
+	  return Object(defined(it));
+	};
+
+/***/ }),
+/* 15 */
 /***/ (function(module, exports) {
 
 	var id = 0
@@ -284,19 +311,19 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 14 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var store  = __webpack_require__(12)('wks')
-	  , uid    = __webpack_require__(13)
-	  , Symbol = __webpack_require__(3).Symbol;
+	var store  = __webpack_require__(13)('wks')
+	  , uid    = __webpack_require__(15)
+	  , Symbol = __webpack_require__(4).Symbol;
 	module.exports = function(name){
 	  return store[name] || (store[name] =
 	    Symbol && Symbol[name] || (Symbol || uid)('Symbol.' + name));
 	};
 
 /***/ }),
-/* 15 */
+/* 17 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -305,7 +332,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	exports.default = {
-	  template: '<div class="toast-progress" v-bind:style="style"></div>',
+	  render: function render(createElement) {
+	    return createElement('div', {
+	      class: 'toast-progress',
+	      style: this.style
+	    });
+	  },
 	  props: ['data'],
 	  data: function data() {
 	    return {
@@ -362,7 +394,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 16 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -371,11 +403,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _toast = __webpack_require__(42);
+	var _assign = __webpack_require__(20);
 	
-	var _toast2 = _interopRequireDefault(_toast);
+	var _assign2 = _interopRequireDefault(_assign);
 	
-	var _toastProgress = __webpack_require__(15);
+	var _toastProgress = __webpack_require__(17);
 	
 	var _toastProgress2 = _interopRequireDefault(_toastProgress);
 	
@@ -385,7 +417,45 @@ return /******/ (function(modules) { // webpackBootstrap
 	  components: {
 	    toastProgress: _toastProgress2.default
 	  },
-	  template: _toast2.default,
+	  render: function render(createElement) {
+	    var toastChildNodes = [];
+	    if (this.progressbar) {
+	      toastChildNodes.push(createElement('toastProgress', {
+	        props: {
+	          data: this.data
+	        },
+	        ref: 'progressBar'
+	      }));
+	    }
+	
+	    if (this.data.title) {
+	      toastChildNodes.push(createElement('div', {
+	        class: 'toast-title',
+	        domProps: {
+	          innerHTML: this.data.title
+	        }
+	      }));
+	    }
+	
+	    if (this.data.msg) {
+	      toastChildNodes.push(createElement('div', {
+	        class: 'toast-message',
+	        domProps: {
+	          innerHTML: this.data.msg
+	        }
+	      }));
+	    }
+	
+	    return createElement('div', {
+	      style: (0, _assign2.default)({ display: 'block' }, this.data.style),
+	      class: 'toast toast-' + this.data.type,
+	      on: {
+	        click: this.clicked,
+	        mouseover: this.onMouseOver,
+	        mouseout: this.onMouseOut
+	      }
+	    }, toastChildNodes);
+	  },
 	  props: ['data'],
 	  data: function data() {
 	    return { progressbar: false, intervalId: false };
@@ -505,7 +575,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 17 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -514,26 +584,45 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 	
-	var _keys = __webpack_require__(18);
-	
-	var _keys2 = _interopRequireDefault(_keys);
-	
-	var _typeof2 = __webpack_require__(20);
+	var _typeof2 = __webpack_require__(23);
 	
 	var _typeof3 = _interopRequireDefault(_typeof2);
 	
-	var _vueToastr = __webpack_require__(43);
+	var _keys = __webpack_require__(21);
 	
-	var _vueToastr2 = _interopRequireDefault(_vueToastr);
+	var _keys2 = _interopRequireDefault(_keys);
 	
-	var _toast = __webpack_require__(16);
+	var _toast = __webpack_require__(18);
 	
 	var _toast2 = _interopRequireDefault(_toast);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	exports.default = {
-	  template: _vueToastr2.default,
+	  render: function render(createElement) {
+	    var toastContainers = [];
+	    for (var i = 0; i < this.positions.length; i++) {
+	      var position = this.positions[i];
+	      var toastNodes = [];
+	
+	      var listKeys = (0, _keys2.default)(this.list[position]);
+	      for (var j = 0; j < listKeys.length; j++) {
+	        var index = listKeys[j];
+	        toastNodes.push(createElement('toast', {
+	          props: {
+	            data: this.list[position][index]
+	          },
+	          key: index
+	        }));
+	      }
+	
+	      toastContainers.push(createElement('div', {
+	        class: 'toast-container ' + position,
+	        key: position
+	      }, toastNodes));
+	    }
+	    return createElement('div', toastContainers);
+	  },
 	  name: 'vueToastr',
 	  props: ['options'],
 	  data: function data() {
@@ -741,24 +830,30 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ }),
-/* 18 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(21), __esModule: true };
-
-/***/ }),
-/* 19 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	module.exports = { "default": __webpack_require__(22), __esModule: true };
-
-/***/ }),
 /* 20 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(24), __esModule: true };
+
+/***/ }),
+/* 21 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(25), __esModule: true };
+
+/***/ }),
+/* 22 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(26), __esModule: true };
+
+/***/ }),
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	"use strict";
 	
-	var _Symbol = __webpack_require__(19)["default"];
+	var _Symbol = __webpack_require__(22)["default"];
 	
 	exports["default"] = function (obj) {
 	  return obj && obj.constructor === _Symbol ? "symbol" : typeof obj;
@@ -767,22 +862,29 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.__esModule = true;
 
 /***/ }),
-/* 21 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	__webpack_require__(38);
+	__webpack_require__(41);
+	module.exports = __webpack_require__(2).Object.assign;
+
+/***/ }),
+/* 25 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	__webpack_require__(42);
 	module.exports = __webpack_require__(2).Object.keys;
 
 /***/ }),
-/* 22 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	__webpack_require__(40);
-	__webpack_require__(39);
+	__webpack_require__(44);
+	__webpack_require__(43);
 	module.exports = __webpack_require__(2).Symbol;
 
 /***/ }),
-/* 23 */
+/* 27 */
 /***/ (function(module, exports) {
 
 	module.exports = function(it){
@@ -791,21 +893,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 24 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	var isObject = __webpack_require__(31);
+	var isObject = __webpack_require__(34);
 	module.exports = function(it){
 	  if(!isObject(it))throw TypeError(it + ' is not an object!');
 	  return it;
 	};
 
 /***/ }),
-/* 25 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// optional / simple context binding
-	var aFunction = __webpack_require__(23);
+	var aFunction = __webpack_require__(27);
 	module.exports = function(fn, that, length){
 	  aFunction(fn);
 	  if(that === undefined)return fn;
@@ -826,7 +928,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 26 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// all enumerable object keys, includes symbols
@@ -845,11 +947,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 27 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
-	var toIObject = __webpack_require__(5)
+	var toIObject = __webpack_require__(6)
 	  , getNames  = __webpack_require__(1).getNames
 	  , toString  = {}.toString;
 	
@@ -870,12 +972,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 28 */
+/* 32 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var $          = __webpack_require__(1)
-	  , createDesc = __webpack_require__(11);
-	module.exports = __webpack_require__(8) ? function(object, key, value){
+	  , createDesc = __webpack_require__(12);
+	module.exports = __webpack_require__(9) ? function(object, key, value){
 	  return $.setDesc(object, key, createDesc(1, value));
 	} : function(object, key, value){
 	  object[key] = value;
@@ -883,27 +985,17 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 29 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	// fallback for non-array-like ES3 and non-enumerable old V8 strings
-	var cof = __webpack_require__(6);
-	module.exports = Object('z').propertyIsEnumerable(0) ? Object : function(it){
-	  return cof(it) == 'String' ? it.split('') : Object(it);
-	};
-
-/***/ }),
-/* 30 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// 7.2.2 IsArray(argument)
-	var cof = __webpack_require__(6);
+	var cof = __webpack_require__(7);
 	module.exports = Array.isArray || function(arg){
 	  return cof(arg) == 'Array';
 	};
 
 /***/ }),
-/* 31 */
+/* 34 */
 /***/ (function(module, exports) {
 
 	module.exports = function(it){
@@ -911,11 +1003,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 32 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var $         = __webpack_require__(1)
-	  , toIObject = __webpack_require__(5);
+	  , toIObject = __webpack_require__(6);
 	module.exports = function(object, el){
 	  var O      = toIObject(object)
 	    , keys   = $.getKeys(O)
@@ -926,19 +1018,57 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 33 */
+/* 36 */
 /***/ (function(module, exports) {
 
 	module.exports = true;
 
 /***/ }),
-/* 34 */
+/* 37 */
+/***/ (function(module, exports, __webpack_require__) {
+
+	// 19.1.2.1 Object.assign(target, source, ...)
+	var $        = __webpack_require__(1)
+	  , toObject = __webpack_require__(14)
+	  , IObject  = __webpack_require__(11);
+	
+	// should work with symbols and should have deterministic property order (V8 bug)
+	module.exports = __webpack_require__(3)(function(){
+	  var a = Object.assign
+	    , A = {}
+	    , B = {}
+	    , S = Symbol()
+	    , K = 'abcdefghijklmnopqrst';
+	  A[S] = 7;
+	  K.split('').forEach(function(k){ B[k] = k; });
+	  return a({}, A)[S] != 7 || Object.keys(a({}, B)).join('') != K;
+	}) ? function assign(target, source){ // eslint-disable-line no-unused-vars
+	  var T     = toObject(target)
+	    , $$    = arguments
+	    , $$len = $$.length
+	    , index = 1
+	    , getKeys    = $.getKeys
+	    , getSymbols = $.getSymbols
+	    , isEnum     = $.isEnum;
+	  while($$len > index){
+	    var S      = IObject($$[index++])
+	      , keys   = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S)
+	      , length = keys.length
+	      , j      = 0
+	      , key;
+	    while(length > j)if(isEnum.call(S, key = keys[j++]))T[key] = S[key];
+	  }
+	  return T;
+	} : Object.assign;
+
+/***/ }),
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// most Object methods by ES6 should accept primitives
-	var $export = __webpack_require__(9)
+	var $export = __webpack_require__(5)
 	  , core    = __webpack_require__(2)
-	  , fails   = __webpack_require__(4);
+	  , fails   = __webpack_require__(3);
 	module.exports = function(KEY, exec){
 	  var fn  = (core.Object || {})[KEY] || Object[KEY]
 	    , exp = {};
@@ -947,76 +1077,75 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ }),
-/* 35 */
+/* 39 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	module.exports = __webpack_require__(28);
+	module.exports = __webpack_require__(32);
 
 /***/ }),
-/* 36 */
+/* 40 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	var def = __webpack_require__(1).setDesc
 	  , has = __webpack_require__(10)
-	  , TAG = __webpack_require__(14)('toStringTag');
+	  , TAG = __webpack_require__(16)('toStringTag');
 	
 	module.exports = function(it, tag, stat){
 	  if(it && !has(it = stat ? it : it.prototype, TAG))def(it, TAG, {configurable: true, value: tag});
 	};
 
 /***/ }),
-/* 37 */
+/* 41 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	// 7.1.13 ToObject(argument)
-	var defined = __webpack_require__(7);
-	module.exports = function(it){
-	  return Object(defined(it));
-	};
+	// 19.1.3.1 Object.assign(target, source)
+	var $export = __webpack_require__(5);
+	
+	$export($export.S + $export.F, 'Object', {assign: __webpack_require__(37)});
 
 /***/ }),
-/* 38 */
+/* 42 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	// 19.1.2.14 Object.keys(O)
-	var toObject = __webpack_require__(37);
+	var toObject = __webpack_require__(14);
 	
-	__webpack_require__(34)('keys', function($keys){
+	__webpack_require__(38)('keys', function($keys){
 	  return function keys(it){
 	    return $keys(toObject(it));
 	  };
 	});
 
 /***/ }),
-/* 39 */
+/* 43 */
 /***/ (function(module, exports) {
 
 
 
 /***/ }),
-/* 40 */
+/* 44 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 	// ECMAScript 6 symbols shim
 	var $              = __webpack_require__(1)
-	  , global         = __webpack_require__(3)
+	  , global         = __webpack_require__(4)
 	  , has            = __webpack_require__(10)
-	  , DESCRIPTORS    = __webpack_require__(8)
-	  , $export        = __webpack_require__(9)
-	  , redefine       = __webpack_require__(35)
-	  , $fails         = __webpack_require__(4)
-	  , shared         = __webpack_require__(12)
-	  , setToStringTag = __webpack_require__(36)
-	  , uid            = __webpack_require__(13)
-	  , wks            = __webpack_require__(14)
-	  , keyOf          = __webpack_require__(32)
-	  , $names         = __webpack_require__(27)
-	  , enumKeys       = __webpack_require__(26)
-	  , isArray        = __webpack_require__(30)
-	  , anObject       = __webpack_require__(24)
-	  , toIObject      = __webpack_require__(5)
-	  , createDesc     = __webpack_require__(11)
+	  , DESCRIPTORS    = __webpack_require__(9)
+	  , $export        = __webpack_require__(5)
+	  , redefine       = __webpack_require__(39)
+	  , $fails         = __webpack_require__(3)
+	  , shared         = __webpack_require__(13)
+	  , setToStringTag = __webpack_require__(40)
+	  , uid            = __webpack_require__(15)
+	  , wks            = __webpack_require__(16)
+	  , keyOf          = __webpack_require__(35)
+	  , $names         = __webpack_require__(31)
+	  , enumKeys       = __webpack_require__(30)
+	  , isArray        = __webpack_require__(33)
+	  , anObject       = __webpack_require__(28)
+	  , toIObject      = __webpack_require__(6)
+	  , createDesc     = __webpack_require__(12)
 	  , getDesc        = $.getDesc
 	  , setDesc        = $.setDesc
 	  , _create        = $.create
@@ -1156,7 +1285,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  $.getNames   = $names.get = $getOwnPropertyNames;
 	  $.getSymbols = $getOwnPropertySymbols;
 	
-	  if(DESCRIPTORS && !__webpack_require__(33)){
+	  if(DESCRIPTORS && !__webpack_require__(36)){
 	    redefine(ObjectProto, 'propertyIsEnumerable', $propertyIsEnumerable, true);
 	  }
 	}
@@ -1226,22 +1355,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	setToStringTag(global.JSON, 'JSON', true);
 
 /***/ }),
-/* 41 */
+/* 45 */
 /***/ (function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 42 */
-/***/ (function(module, exports) {
-
-	module.exports = "<div v-bind:style=\"data.style\" v-bind:class=\"'toast toast-' + data.type\" style=\"display: block;\" @click=\"clicked()\" v-on:mouseover=\"onMouseOver\" v-on:mouseout=\"onMouseOut\">\n    <toast-progress v-if=\"progressbar\" :data=\"data\" ref=\"progressBar\"></toast-progress>\n    <div class=\"toast-title\" v-html=\"data.title\">\n    </div>\n    <div class=\"toast-message\" v-html=\"data.msg\">\n    </div>\n</div>\n";
-
-/***/ }),
-/* 43 */
-/***/ (function(module, exports) {
-
-	module.exports = "<div>\n    <div v-bind:class=\"'toast-container ' + position\" v-for=\"(toasts, position) in list\" :key=\"position\">\n        <toast :data=\"toast\" v-for=\"(toast, index) in toasts\" :key=\"index\">\n        </toast>\n    </div>\n</div>\n";
 
 /***/ })
 /******/ ])
