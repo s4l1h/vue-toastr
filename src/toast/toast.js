@@ -1,11 +1,48 @@
-import template from './toast.html'
 import toastProgress from './toast-progress.js'
 
 export default {
   components: {
     toastProgress
   },
-  template: template,
+  render: function (createElement) {
+    var toastChildNodes = []
+    if (this.progressbar) {
+      toastChildNodes.push(createElement('toastProgress', {
+        props: {
+          data: this.data
+        },
+        ref: 'progressBar'
+      }))
+    }
+
+    if (this.data.title) {
+      toastChildNodes.push(createElement('div', {
+        class: 'toast-title',
+        domProps: {
+          innerHTML: this.data.title
+        }
+      }))
+    }
+
+    if (this.data.msg) {
+      toastChildNodes.push(createElement('div', {
+        class: 'toast-message',
+        domProps: {
+          innerHTML: this.data.msg
+        }
+      }))
+    }
+
+    return createElement('div', {
+      style: Object.assign({ display: 'block' }, this.data.style),
+      class: 'toast toast-' + this.data.type,
+      on: {
+        click: this.clicked,
+        mouseover: this.onMouseOver,
+        mouseout: this.onMouseOut
+      }
+    }, toastChildNodes)
+  },
   props: ['data'],
   data () {
     return { progressbar: false, intervalId: false }

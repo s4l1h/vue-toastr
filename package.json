@@ -1,6 +1,6 @@
 {
     "name": "vue-toastr",
-    "version": "2.0.16",
+    "version": "2.0.17",
     "description": "Toastr for Vue.js no jquery dependencies",
     "main": "./dist/vue-toastr.js",
     "dependencies": {},

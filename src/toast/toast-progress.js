@@ -1,5 +1,10 @@
 export default {
-  template: `<div class="toast-progress" v-bind:style="style"></div>`,
+  render: function (createElement) {
+    return createElement('div', {
+      class: 'toast-progress',
+      style: this.style
+    })
+  },
   props: ['data'],
   data () {
     return {

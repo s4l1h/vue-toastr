@@ -9,7 +9,14 @@ vueToastr.install = function (Vue, options) {
   // console.log("install vuetoastr")
   // Create component instance
   let MyComponent = Vue.extend({
-    template: '<vue-toastr :options="options" ref="vueToastr"></vue-toastr>',
+    render: function (createElement) {
+      return createElement(vueToastr, {
+        props: {
+          options: options
+        },
+        ref: 'vueToastr'
+      })
+    },
     components: {
       'vue-toastr': vueToastr
     },
