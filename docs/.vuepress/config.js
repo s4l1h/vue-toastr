@@ -1,5 +1,6 @@
 module.exports = {
   plugins: [require("./plugin.js")],
+  base: "/vue-toastr/",
   locales: {
     "/": {
       lang: "en-US",
