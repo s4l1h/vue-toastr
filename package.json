@@ -1,63 +1,79 @@
 {
-    "name": "vue-toastr",
-    "version": "2.0.17",
-    "description": "Toastr for Vue.js no jquery dependencies",
-    "main": "./dist/vue-toastr.js",
-    "dependencies": {},
-    "devDependencies": {
-        "babel-core": "^6.1.21",
-        "babel-loader": "^6.1.0",
-        "babel-plugin-add-module-exports": "^0.1.2",
-        "babel-plugin-lodash": "^2.0.1",
-        "babel-plugin-transform-runtime": "^6.1.18",
-        "babel-preset-es2015": "^6.1.18",
-        "babel-runtime": "^5.8.38",
-        "cross-env": "^3.1.2",
-        "css-loader": "^0.25.0",
-        "extract-text-webpack-plugin": "^1.0.1",
-        "less": "^2.7.1",
-        "less-loader": "^2.2.3",
-        "node-sass": "^4.5.3",
-        "sass-loader": "4.1.1",
-        "style-loader": "^0.13.1",
-        "vue-hot-reload-api": "^2.0.6",
-        "vue-html-loader": "^1.2.3",
-        "vue-loader": "^9.x",
-        "vue-style-loader": "^1.0.0",
-        "webpack": "^1.15.0",
-        "webpack-dev-server": "^1.16.2",
-        "eslint": "^4.12.1",
-        "eslint-config-standard": "^10.2.1",
-        "eslint-friendly-formatter": "^3.0.0",
-        "eslint-loader": "^1.7.1",
-        "eslint-plugin-html": "^4.0.1",
-        "eslint-plugin-import": "^2.8.0",
-        "eslint-plugin-node": "^5.2.1",
-        "eslint-plugin-promise": "^3.4.0",
-        "eslint-plugin-standard": "^3.0.1"
+  "name": "vue-toastr",
+  "version": "2.1.0",
+  "description": "Toastr for Vue.js no jquery dependencies",
+  "scripts": {
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "demo": "vue-cli-service demo",
+    "docs": "npm run docs:serve",
+    "docs:build": "vue-cli-service docs --mode build",
+    "docs:serve": "vue-cli-service docs --mode serve",
+    "prepublish": "vue-cli-service lint && vue-cli-service docs --mode build && vue-cli-service build"
+  },
+  "main": "dist/vue-toastr.common.js",
+  "module": "dist/vue-toastr.esm.js",
+  "unpkg": "dist/vue-toastr.umd.min.js",
+  "files": [
+    "dist/vue-toastr.common.js",
+    "dist/vue-toastr.umd.min.js",
+    "dist/vue-toastr.umd.js",
+    "dist/vue-toastr.esm.js",
+    "src"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.8.0",
+    "@vue/cli-plugin-eslint": "^3.8.0",
+    "@vue/cli-service": "^3.8.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^7.1.0",
+    "vue": "^2.6.10",
+    "vue-cli-plugin-p11n": "^0.3.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
     },
-    "scripts": {
-        "dev": "webpack-dev-server --inline --hot --quiet --config build/webpack.dev.config.js",
-        "build": "webpack --progress --hide-modules --config build/webpack.dev.config.js",
-        "build_min": "cross-env NODE_ENV=production webpack --progress --hide-modules --config build/webpack.config.min.js",
-        "build_combine": "cross-env NODE_ENV=production webpack --progress --hide-modules --config build/webpack.config.combine.js",
-        "clear": "rm dist/*",
-        "buildAll": "npm run build && npm run build_min && npm run build_combine"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/s4l1h/vue-toastr.git"
-    },
-    "keywords": [
-        "vuejs",
-        "vue",
-        "vue-component",
-        "component"
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
     ],
-    "author": "s4l1h",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/s4l1h/vue-toastr/issues"
-    },
-    "homepage": "https://github.com/s4l1h/vue-toastr#readme"
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ],
+  "jsdelivr": "dist/vue-toastr.umd.min.js",
+  "sideeffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s4l1h/vue-toastr.git"
+  },
+  "keywords": [
+    "vuejs",
+    "vue",
+    "vue-component",
+    "component"
+  ],
+  "author": "s4l1h",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/s4l1h/vue-toastr/issues"
+  },
+  "homepage": "https://github.com/s4l1h/vue-toastr#readme"
 }
