@@ -2,14 +2,17 @@
   "name": "vue-toastr",
   "version": "2.1.0",
   "description": "Toastr for Vue.js no jquery dependencies",
+  "author": "s4l1h",
   "scripts": {
     "build": "vue-cli-service build",
+    "test": "vue-cli-service test",
     "lint": "vue-cli-service lint",
     "demo": "vue-cli-service demo",
     "docs": "npm run docs:serve",
     "docs:build": "vue-cli-service docs --mode build",
     "docs:serve": "vue-cli-service docs --mode serve",
-    "prepublish": "vue-cli-service lint && vue-cli-service docs --mode build && vue-cli-service build"
+    "prepublish": "vue-cli-service lint && vue-cli-service docs --mode build && vue-cli-service build",
+    "test:unit": "vue-cli-service test:unit"
   },
   "main": "dist/vue-toastr.common.js",
   "module": "dist/vue-toastr.esm.js",
@@ -25,8 +28,12 @@
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.8.0",
     "@vue/cli-plugin-eslint": "^3.8.0",
+    "@vue/cli-plugin-unit-jest": "^3.8.0",
     "@vue/cli-service": "^3.8.0",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
     "node-sass": "^4.12.0",
@@ -58,22 +65,21 @@
     "> 1%",
     "last 2 versions"
   ],
-  "jsdelivr": "dist/vue-toastr.umd.min.js",
-  "sideeffects": false,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/s4l1h/vue-toastr.git"
+  "bugs": {
+    "url": "https://github.com/s4l1h/vue-toastr/issues"
   },
+  "homepage": "https://github.com/s4l1h/vue-toastr#readme",
+  "jsdelivr": "dist/vue-toastr.umd.min.js",
   "keywords": [
     "vuejs",
     "vue",
     "vue-component",
     "component"
   ],
-  "author": "s4l1h",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/s4l1h/vue-toastr/issues"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/s4l1h/vue-toastr.git"
   },
-  "homepage": "https://github.com/s4l1h/vue-toastr#readme"
+  "sideeffects": false
 }

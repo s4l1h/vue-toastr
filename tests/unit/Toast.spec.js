@@ -1,0 +1,42 @@
+import { shallowMount } from "@vue/test-utils";
+import Toast from "@/components/Toast.vue";
+
+const mockProps = {
+  data: {
+    msg: "Toast Msg",
+    progressbar: false,
+    timeout: 1000,
+    title: "Toast Title",
+    type: "error"
+  }
+};
+describe("Toast.vue", () => {
+  // it("default props value", () => {
+  //   const wrapper = shallowMount(Toast, {});
+  //   expect(wrapper.props()).toEqual(mockProps);
+  // });
+
+  it("renders props when passed", () => {
+    const wrapper = shallowMount(Toast, {
+      propsData: mockProps
+    });
+    expect(wrapper.props()).toEqual(mockProps);
+  });
+
+  it("match attributes", () => {
+    const wrapper = shallowMount(Toast, {
+      propsData: mockProps
+    });
+    expect(wrapper.attributes()).toEqual({
+      class: "toast toast-error",
+      style: "display: block;"
+    });
+  });
+
+  it("matches snapshot", () => {
+    const wrapper = shallowMount(Toast, {
+      propsData: mockProps
+    });
+    expect(wrapper.html()).toMatchSnapshot();
+  });
+});

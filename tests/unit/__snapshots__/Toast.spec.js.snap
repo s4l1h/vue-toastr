@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toast.vue matches snapshot 1`] = `
+<div class="toast toast-error" style="display: block;">
+  <!---->
+  <div class="toast-title">Toast Title</div>
+  <div class="toast-message">Toast Msg</div>
+</div>
+`;
