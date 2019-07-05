@@ -24,12 +24,12 @@ yarn run build
 yarn run lint
 ```
 
-### Documentation
+### Build and Watch Documentation
 
 ```
 yarn run docs
 ```
 
-### Customize configuration
+### Reference and documentation
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+See [http://s4l1h.github.io/vue-toastr/](http://s4l1h.github.io/vue-toastr/).
