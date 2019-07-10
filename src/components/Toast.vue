@@ -1,7 +1,7 @@
 <template>
   <div
     v-bind:style="data.style"
-    v-bind:class="'toast toast-' + data.type"
+    v-bind:class="classNames"
     style="display: block;"
     @click="clicked()"
     v-on:mouseover="onMouseOver"
@@ -63,6 +63,9 @@ export default {
     }
   },
   computed: {
+    classNames() {
+      return ["toast", "toast-" + this.data.type].concat(this.data.classNames);
+    },
     progressBarPercent() {
       if (this.data.progressBarValue != null) {
         return this.data.progressBarValue;

@@ -46,6 +46,12 @@ this.$toastr.defaultCloseOnHover = false; // default close on hover: true
 this.$toastr.defaultStyle = { "background-color": "red" }; // default style: { }
 ```
 
+### Inject your class names to toast
+
+```javascript
+this.$toastr.defaultclassNames = ["animated", "zoomInUp"]; // default classNames: []
+```
+
 ## Overwrite default options via plugin options
 
 _You can also overwrite defaults by passing options object during plugin registration_
@@ -58,6 +64,7 @@ Vue.use(VueToastr, {
   defaultType: "error",
   defaultPosition: "toast-bottom-left",
   defaultCloseOnHover: false,
-  defaultStyle: { "background-color": "red" }
+  defaultStyle: { "background-color": "red" },
+  defaultclassNames: ["animated", "zoomInUp"]
 });
 ```

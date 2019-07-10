@@ -32,6 +32,18 @@ describe("Toast.vue", () => {
       style: "display: block;"
     });
   });
+  it("match classNames", () => {
+    const props = {
+      data: { ...mockProps.data, classNames: ["animated", "bounce"] }
+    };
+    const wrapper = shallowMount(Toast, {
+      propsData: props
+    });
+    expect(wrapper.attributes()).toEqual({
+      class: "toast toast-error animated bounce",
+      style: "display: block;"
+    });
+  });
 
   it("matches snapshot", () => {
     const wrapper = shallowMount(Toast, {

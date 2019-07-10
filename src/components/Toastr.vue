@@ -36,6 +36,7 @@ export default {
     }
     return {
       positions,
+      defaultClassNames: this.processOption("defaultClassNames", []),
       defaultPosition: this.processOption("defaultPosition", "toast-top-right"),
       defaultType: this.processOption("defaultType", "success"),
       defaultCloseOnHover: this.processOption("defaultCloseOnHover", true),
@@ -140,6 +141,9 @@ export default {
     processObjectData(data) {
       // if Object
       if (typeof data === "object" && typeof data.msg !== "undefined") {
+        if (typeof data.classNames === "undefined") {
+          data.classNames = this.defaultClassNames;
+        }
         if (typeof data.position === "undefined") {
           data.position = this.defaultPosition;
         }
@@ -181,7 +185,8 @@ export default {
         progressbar: this.defaultProgressBar,
         progressBarValue: this.defaultProgressBarValue,
         preventDuplicates: this.defaultPreventDuplicates,
-        style: this.defaultStyle
+        style: this.defaultStyle,
+        classNames: this.defaultClassNames
       };
     },
     e(msg, title) {
@@ -241,3 +246,6 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+@import "../vue-toastr.scss";
+</style>

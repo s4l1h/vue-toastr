@@ -29,6 +29,3 @@ if (typeof window !== "undefined" && window.Vue) {
 }
 export default VueToastr;
 </script>
-<style lang="scss">
-@import "../vue-toastr.scss";
-</style>

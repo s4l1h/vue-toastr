@@ -24,6 +24,12 @@ export default {
     };
   },
   mounted() {
+    this.$toastr.defaultTimeout = 10000; // default timeout : 5000
+    this.$toastr.defaultClassNames = ["animated", "zoomInUp"];
+    this.$toastr.s(
+      "This Message From Toastr Plugin\n You can access this plugin : <font color='yellow'>this.$toastr</font>"
+    );
+    this.$toastr.defaultClassNames = ["animated", "bounceInRight"];
     this.$toastr.defaultPosition = "toast-top-left";
     this.$toastr.s(
       "This Message From Toastr Plugin\n You can access this plugin : <font color='yellow'>this.$toastr</font>"
@@ -45,6 +51,7 @@ export default {
         timeout: 0, // Remember defaultTimeout is 5 sec..
         position: "toast-bottom-center",
         type: "error",
+        classNames: ["animated", "flipInX"],
         onCreated: () => {
           this.showRemoveButton = true;
         },
