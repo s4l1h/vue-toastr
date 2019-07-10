@@ -1,6 +1,6 @@
 # Getting Started
 
-After installation you will be able to use **_vue-toastr_** as a **_component_** or a **_plugin_**.
+After installation you will be able to use **_vue-toastr_** as a **_component_** or as a **_plugin_**.
 
 Next step you should choice how are you going to use **_vue-toastr_**.
 

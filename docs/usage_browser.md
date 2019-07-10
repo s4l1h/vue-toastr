@@ -10,6 +10,15 @@ When you add vue-toastr to your page you won't need to install it because it wil
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="https://unpkg.com/vue-toastr/dist/vue-toastr.umd.min.js"></script>
 
+<!-- for animation it is not necessary just for fun -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"
+  integrity="sha256-PHcOkPmOshsMBC+vtJdVr5Mwb7r0LkSVJPlPrp/IMpU="
+  crossorigin="anonymous"
+/>
+<!-- for animation it is not necessary just for fun -->
+
 <div id="#app">
   <!-- Your vue application -->
 </div>
@@ -22,6 +31,8 @@ When you add vue-toastr to your page you won't need to install it because it wil
 // you can access the plugin from everywhere via this.$toastr
 new Vue({
   mounted() {
+    // Inject your class names for animation
+    this.$toastr.defaultClassNames = ["animated", "zoomInUp"];
     // Change Toast Position
     this.$toastr.defaultPosition = "toast-top-left";
     // Send message to browser screen
