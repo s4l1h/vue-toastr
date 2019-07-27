@@ -49,7 +49,7 @@ this.$toastr.defaultStyle = { "background-color": "red" }; // default style: { }
 ### Inject your class names to toast
 
 ```javascript
-this.$toastr.defaultclassNames = ["animated", "zoomInUp"]; // default classNames: []
+this.$toastr.defaultClassNames = ["animated", "zoomInUp"]; // default classNames: []
 ```
 
 ## Overwrite default options via plugin options
@@ -65,6 +65,6 @@ Vue.use(VueToastr, {
   defaultPosition: "toast-bottom-left",
   defaultCloseOnHover: false,
   defaultStyle: { "background-color": "red" },
-  defaultclassNames: ["animated", "zoomInUp"]
+  defaultClassNames: ["animated", "zoomInUp"]
 });
 ```

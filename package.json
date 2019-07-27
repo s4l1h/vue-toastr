@@ -1,6 +1,6 @@
 {
   "name": "vue-toastr",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Toastr for Vue.js no jquery dependencies",
   "author": "s4l1h",
   "scripts": {
