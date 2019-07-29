@@ -33,3 +33,6 @@ yarn run docs
 ### Reference and documentation
 
 See [http://s4l1h.github.io/vue-toastr/](http://s4l1h.github.io/vue-toastr/).
+
+### Basic Demo
+[https://codepen.io/s4l1h/pen/PyaRGQ](https://codepen.io/s4l1h/pen/PyaRGQ)
