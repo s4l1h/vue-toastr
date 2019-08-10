@@ -1,5 +1,7 @@
 # vue-toastr
 
+You can find **React.js** version of this library from [here](https://github.com/s4l1h/react-toasted)
+
 ## Project setup
 
 ```
