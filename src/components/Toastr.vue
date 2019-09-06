@@ -5,7 +5,9 @@
       v-for="(toasts, position) in list"
       :key="position"
     >
-      <toast :data="toast" v-for="(toast, index) in toasts" :key="index"></toast>
+      <toast :data="toast" v-for="(toast, index) in toasts" :key="index">
+        <slot></slot>
+      </toast>
     </div>
   </div>
 </template>

@@ -7,9 +7,20 @@
     v-on:mouseover="onMouseOver"
     v-on:mouseout="onMouseOut"
   >
-    <toast-progress v-if="progressbar" :percent="progressBarPercent" ref="progressBar"></toast-progress>
-    <div class="toast-title" v-html="data.title"></div>
-    <div class="toast-message" v-html="data.msg"></div>
+    <toast-progress
+      v-if="progressbar"
+      :percent="progressBarPercent"
+      ref="progressBar"
+    ></toast-progress>
+    <div v-if="data.title" class="toast-title" v-html="data.title"></div>
+    <div
+      v-if="data.msg && !$slots.default"
+      class="toast-message"
+      v-html="data.msg"
+    ></div>
+    <div v-if="$slots.default" class="toast-message">
+      <slot></slot>
+    </div>
   </div>
 </template>
 <script>
