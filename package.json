@@ -75,6 +75,9 @@
       "parser": "babel-eslint"
     }
   },
+  "eslintIgnore": [
+    "dist/*"
+  ],
   "postcss": {
     "plugins": {
       "autoprefixer": {}
