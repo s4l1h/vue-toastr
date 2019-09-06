@@ -24,8 +24,8 @@
   </div>
 </template>
 <script>
-import ToastProgress from "./ToastProgress.vue";
-import IntervalTimeManager from "./IntervalTimeManager.js";
+import ToastProgress from "./ToastProgress.vue"
+import IntervalTimeManager from "./IntervalTimeManager.js"
 export default {
   components: {
     ToastProgress
@@ -36,15 +36,15 @@ export default {
       progressbar: false,
       progressBarTimer: null,
       timeoutTimer: null
-    };
+    }
   },
   mounted() {
     // console.log("ready", this.data);
     if (this.progressBarTimer != null) {
-      this.progressBarTimer.start();
+      this.progressBarTimer.start()
     }
     if (this.timeoutTimer != null) {
-      this.timeoutTimer.start();
+      this.timeoutTimer.start()
     }
   },
   created() {
@@ -54,43 +54,43 @@ export default {
         totalTime: this.data.timeout,
         callbackFunctions: {
           "after:finish": () => {
-            this.close();
+            this.close()
             // console.log("Timeout Fired");
           }
         }
-      });
+      })
       // SetUP progressbar Time Manager
       if (this.data.progressbar !== false) {
-        this.progressbar = true;
+        this.progressbar = true
         this.progressBarTimer = IntervalTimeManager({
           totalTime: this.data.timeout
-        });
+        })
       }
     } else if (
       this.data.progressBarValue !== null &&
       this.data.progressbar !== false
     ) {
-      this.progressbar = true;
+      this.progressbar = true
     }
   },
   computed: {
     classNames() {
-      return ["toast", "toast-" + this.data.type].concat(this.data.classNames);
+      return ["toast", "toast-" + this.data.type].concat(this.data.classNames)
     },
     progressBarPercent() {
       if (this.data.progressBarValue != null) {
-        return this.data.progressBarValue;
+        return this.data.progressBarValue
       }
-      return this.progressBarTimer.getPercent();
+      return this.progressBarTimer.getPercent()
     }
   },
   beforeDestroy() {
     if (this.progressBarTimer != null) {
-      this.progressBarTimer.stop();
+      this.progressBarTimer.stop()
     }
 
     if (this.timeoutTimer != null) {
-      this.timeoutTimer.stop();
+      this.timeoutTimer.stop()
     }
   },
   methods: {
@@ -98,14 +98,14 @@ export default {
     onMouseOver() {
       // console.log("onMouseOver")
       if (typeof this.data.onMouseOver !== "undefined") {
-        this.data.onMouseOver();
+        this.data.onMouseOver()
       }
       if (this.data.closeOnHover) {
         if (this.progressBarTimer != null) {
-          this.progressBarTimer.pause();
+          this.progressBarTimer.pause()
         }
         if (this.timeoutTimer != null) {
-          this.timeoutTimer.pause();
+          this.timeoutTimer.pause()
         }
       }
     },
@@ -113,23 +113,23 @@ export default {
     onMouseOut() {
       // console.log("onMouseOut")
       if (typeof this.data.onMouseOut !== "undefined") {
-        this.data.onMouseOut();
+        this.data.onMouseOut()
       }
       if (this.data.closeOnHover) {
         if (this.progressBarTimer != null) {
-          this.progressBarTimer.resume();
+          this.progressBarTimer.resume()
         }
         if (this.timeoutTimer != null) {
-          this.timeoutTimer.resume();
+          this.timeoutTimer.resume()
         }
       }
     },
     // Clicked Toast
     clicked() {
       if (typeof this.data.onClicked !== "undefined") {
-        this.data.onClicked();
+        this.data.onClicked()
       }
-      this.clickClose();
+      this.clickClose()
     },
     // Click Close?
     clickClose() {
@@ -137,18 +137,18 @@ export default {
         typeof this.data.clickClose !== "undefined" &&
         this.data.clickClose === false
       ) {
-        return;
+        return
       }
-      this.close();
+      this.close()
     },
     // Close Toast
     close() {
       // console.log(typeof this.$parent, this);
       // if toast not manuel closed.
       if (this.$parent != null) {
-        this.$parent.Close(this.data);
+        this.$parent.Close(this.data)
       }
     }
   }
-};
+}
 </script>

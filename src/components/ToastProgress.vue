@@ -13,8 +13,8 @@ export default {
     style() {
       return {
         width: this.percent.toString() + "%"
-      };
+      }
     }
   }
-};
+}
 </script>

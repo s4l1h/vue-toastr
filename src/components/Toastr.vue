@@ -12,7 +12,7 @@
   </div>
 </template>
 <script>
-import toast from "./Toast.vue";
+import toast from "./Toast.vue"
 export default {
   name: "VueToastr",
   props: {
@@ -31,10 +31,10 @@ export default {
       "toast-bottom-full-width",
       "toast-top-center",
       "toast-bottom-center"
-    ];
-    var list = {};
+    ]
+    var list = {}
     for (var i = 0; i <= positions.length - 1; i++) {
-      list[positions[i]] = {};
+      list[positions[i]] = {}
     }
     return {
       positions,
@@ -56,7 +56,7 @@ export default {
       list,
       index: 0,
       savedNames: {}
-    };
+    }
   },
   created() {
     // console.log("Created");
@@ -69,113 +69,113 @@ export default {
   },
   methods: {
     addToast(data) {
-      this.index++;
-      data["index"] = this.index;
-      this.$set(this.list[data.position], this.index, data);
+      this.index++
+      data["index"] = this.index
+      this.$set(this.list[data.position], this.index, data)
       if (typeof data["name"] !== "undefined") {
-        this.$set(this.savedNames, data["name"], data);
+        this.$set(this.savedNames, data["name"], data)
       }
       // if have onCreated
       if (typeof data.onCreated !== "undefined") {
         // wait doom update after call cb
         this.$nextTick(() => {
-          data.onCreated();
-        });
+          data.onCreated()
+        })
       }
     },
     removeByName(name) {
       if (typeof this.savedNames[name] !== "undefined") {
-        this.Close(this.savedNames[name]);
-        this.$delete(this.savedNames, name);
+        this.Close(this.savedNames[name])
+        this.$delete(this.savedNames, name)
       }
     },
     removeToast(data) {
-      var item = this.list[data.position][data.index];
+      var item = this.list[data.position][data.index]
       // console.log("remove toast", data, item);
       if (typeof item !== "undefined") {
-        this.$delete(this.list[data.position], data.index);
+        this.$delete(this.list[data.position], data.index)
         // if have onClosed
         if (typeof data.onClosed !== "undefined") {
           // wait doom update after call cb
           this.$nextTick(() => {
-            data.onClosed();
-          });
+            data.onClosed()
+          })
         }
       }
     },
     setProgress(data, newValue) {
-      var item = this.list[data.position][data.index];
+      var item = this.list[data.position][data.index]
       if (typeof item !== "undefined") {
-        this.$set(item, "progressBarValue", newValue);
+        this.$set(item, "progressBarValue", newValue)
       }
     },
     Add(d) {
-      return this.AddData(this.processObjectData(d));
+      return this.AddData(this.processObjectData(d))
     },
     AddData(data) {
       if (typeof data !== "object") {
         //console.log("AddData accept only Object", data);
-        return false;
+        return false
       }
       if (data.preventDuplicates) {
-        var listKeys = Object.keys(this.list[data.position]);
+        var listKeys = Object.keys(this.list[data.position])
         for (var i = 0; i < listKeys.length; i++) {
           if (
             this.list[data.position][listKeys[i]].title === data.title &&
             this.list[data.position][listKeys[i]].msg === data.msg
           ) {
             //console.log("Prevent Duplicates", data);
-            return false;
+            return false
           }
         }
       }
-      this.addToast(data);
-      return data;
+      this.addToast(data)
+      return data
     },
     processOption(optionValue, defaultValue) {
       if (!this.options) {
-        return defaultValue;
+        return defaultValue
       }
       return typeof this.options[optionValue] !== "undefined"
         ? this.options[optionValue]
-        : defaultValue;
+        : defaultValue
     },
     processObjectData(data) {
       // if Object
       if (typeof data === "object" && typeof data.msg !== "undefined") {
         if (typeof data.classNames === "undefined") {
-          data.classNames = this.defaultClassNames;
+          data.classNames = this.defaultClassNames
         }
         if (typeof data.position === "undefined") {
-          data.position = this.defaultPosition;
+          data.position = this.defaultPosition
         }
         if (typeof data.type === "undefined") {
-          data.type = this.defaultType;
+          data.type = this.defaultType
         }
         if (typeof data.timeout === "undefined") {
-          data.timeout = this.defaultTimeout;
+          data.timeout = this.defaultTimeout
         }
         // have progressBar ?
         if (typeof data.progressbar === "undefined") {
-          data.progressbar = this.defaultProgressBar;
+          data.progressbar = this.defaultProgressBar
         }
         // should progressBar be bound to timer or is set manually ?
         if (typeof data.progressBarValue === "undefined") {
-          data.progressBarValue = this.defaultProgressBarValue;
+          data.progressBarValue = this.defaultProgressBarValue
         }
 
         if (typeof data.closeOnHover === "undefined") {
-          data.closeOnHover = this.defaultCloseOnHover;
+          data.closeOnHover = this.defaultCloseOnHover
         }
 
         if (typeof data.preventDuplicates === "undefined") {
-          data.preventDuplicates = this.defaultPreventDuplicates;
+          data.preventDuplicates = this.defaultPreventDuplicates
         }
 
         if (typeof data.style === "undefined") {
-          data.style = this.defaultStyle;
+          data.style = this.defaultStyle
         }
-        return data;
+        return data
       }
       // if String
       return {
@@ -189,64 +189,64 @@ export default {
         preventDuplicates: this.defaultPreventDuplicates,
         style: this.defaultStyle,
         classNames: this.defaultClassNames
-      };
+      }
     },
     e(msg, title) {
-      var data = this.processObjectData(msg);
-      data["type"] = "error";
+      var data = this.processObjectData(msg)
+      data["type"] = "error"
       if (typeof title !== "undefined") {
-        data["title"] = title;
+        data["title"] = title
       }
-      return this.AddData(data);
+      return this.AddData(data)
     },
     s(msg, title) {
-      var data = this.processObjectData(msg);
-      data["type"] = "success";
+      var data = this.processObjectData(msg)
+      data["type"] = "success"
       if (typeof title !== "undefined") {
-        data["title"] = title;
+        data["title"] = title
       }
-      return this.AddData(data);
+      return this.AddData(data)
     },
     w(msg, title) {
-      var data = this.processObjectData(msg);
-      data["type"] = "warning";
+      var data = this.processObjectData(msg)
+      data["type"] = "warning"
       if (typeof title !== "undefined") {
-        data["title"] = title;
+        data["title"] = title
       }
-      return this.AddData(data);
+      return this.AddData(data)
     },
     i(msg, title) {
-      var data = this.processObjectData(msg);
-      data["type"] = "info";
+      var data = this.processObjectData(msg)
+      data["type"] = "info"
       if (typeof title !== "undefined") {
-        data["title"] = title;
+        data["title"] = title
       }
-      return this.AddData(data);
+      return this.AddData(data)
     },
     Close(data) {
       // console.log(data)
-      this.removeToast(data);
+      this.removeToast(data)
     },
     removeByType(toastType) {
       for (var i = 0; i < this.positions.length; i++) {
-        var listKeys = Object.keys(this.list[this.positions[i]]);
+        var listKeys = Object.keys(this.list[this.positions[i]])
         for (var j = 0; j < listKeys.length; j++) {
           if (this.list[this.positions[i]][listKeys[j]]["type"] === toastType) {
-            this.Close(this.list[this.positions[i]][listKeys[j]]);
+            this.Close(this.list[this.positions[i]][listKeys[j]])
           }
         }
       }
     },
     clearAll() {
       for (var i = 0; i < this.positions.length; i++) {
-        var listKeys = Object.keys(this.list[this.positions[i]]);
+        var listKeys = Object.keys(this.list[this.positions[i]])
         for (var j = 0; j < listKeys.length; j++) {
-          this.Close(this.list[this.positions[i]][listKeys[j]]);
+          this.Close(this.list[this.positions[i]][listKeys[j]])
         }
       }
     }
   }
-};
+}
 </script>
 <style lang="scss">
 @import "../vue-toastr.scss";
