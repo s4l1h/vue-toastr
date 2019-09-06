@@ -37,4 +37,9 @@ yarn run docs
 See [http://s4l1h.github.io/vue-toastr/](http://s4l1h.github.io/vue-toastr/).
 
 ### Basic Demo
+
 [https://codepen.io/s4l1h/pen/PyaRGQ](https://codepen.io/s4l1h/pen/PyaRGQ)
+
+### Contribute
+
+You can send your pull requests via the dev branch.
