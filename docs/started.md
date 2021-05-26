@@ -2,7 +2,7 @@
 
 After installation you will be able to use **_vue-toastr_** as a **_component_** or as a **_plugin_**.
 
-Next step you should choose how are you going to use **_vue-toastr_**.
+Next step you should choose how you are going to use **_vue-toastr_**.
 
 [Usage On Browser](./usage_browser.md) or [Usage On Module](./usage_module.md) after than you can create your first toast!
 
