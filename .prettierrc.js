@@ -1,0 +1,9 @@
+module.exports = {
+  trailingComma: "es5",
+  tabWidth: 4,
+  semi: true,
+  singleQuote: false,
+  printWidth: 80,
+  overrides: [{ files: ["*.json", "*.js"], options: { tabWidth: 2 } }],
+  arrowParens: "avoid",
+};

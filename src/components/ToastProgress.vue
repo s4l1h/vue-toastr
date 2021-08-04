@@ -1,20 +1,24 @@
 <template>
-  <div class="toast-progress" v-bind:style="style"></div>
+    <div class="toast-progress" :style="styleObject"></div>
 </template>
-<script>
-export default {
-  props: {
-    percent: {
-      type: Number,
-      default: 100
-    }
-  },
-  computed: {
-    style() {
-      return {
-        width: this.percent.toString() + "%"
-      }
-    }
-  }
-}
+<script lang="ts">
+import { defineComponent } from "vue";
+
+const ToastProgress = defineComponent({
+    name: "ToastProgress",
+    props: {
+        percent: {
+            type: Number,
+            default: 100,
+        },
+    },
+    computed: {
+        styleObject(): { width: string } {
+            return {
+                width: `${this.percent.toString()}%`,
+            };
+        },
+    },
+});
+export default ToastProgress;
 </script>

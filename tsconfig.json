@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "types": ["node", "jest"],
+    "moduleResolution": "node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "noEmit": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "lib": ["esnext", "dom"],
+    "declaration": true,
+    "declarationDir": "dist/",
+    "declarationMap": true,
+    "baseUrl": "./",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/utils": ["./src/utils/*"]
+    }
+  },
+  "include": [
+    "@/**/*.vue",
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "__tests__/*.ts",
+    "tests/*.ts",
+    "tests/*.tsx",
+    "tests/unit/*.ts",
+    "tests/unit/*.tsx",
+    "tests/unit/*.spec.ts",
+    "tests/unit/*.spec.tsx",
+    "*.js",
+    "*.ts"
+  ],
+  "exclude": ["dist", "node_modules"]
+}
