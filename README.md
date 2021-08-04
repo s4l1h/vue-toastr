@@ -2,6 +2,10 @@
 
 You can find **React.js** version of this library from [here](https://github.com/s4l1h/react-toasted)
 
+
+Note: For **Vue.js 3** of this library https://github.com/s4l1h/vue-toastr/tree/dev-v3 (still beta).
+
+
 ## Project setup
 
 ```
