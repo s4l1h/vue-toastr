@@ -3,7 +3,8 @@ import ToastContainer from "./components/ToastContainer.vue";
 import Toast from "./components/Toast.vue";
 import ToastProgress from "./components/ToastProgress.vue";
 import { ToastDefaultOptions } from "./types";
-import * as Types from "./types";
+
+export * from "./types";
 
 const VueToastr = {
     install: (app: App, options: ToastDefaultOptions): void => {
@@ -22,10 +23,4 @@ const VueToastr = {
         app.provide("VueToastr", component);
     },
 };
-export default {
-    ToastContainer,
-    ToastProgress,
-    Toast,
-    VueToastr,
-    Types,
-};
+export { ToastContainer, ToastProgress, Toast, VueToastr };

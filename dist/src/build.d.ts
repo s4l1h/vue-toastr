@@ -1,3 +1,3 @@
 import "./main.scss";
-export * as default from "./main";
+export * from "./main";
 //# sourceMappingURL=build.d.ts.map

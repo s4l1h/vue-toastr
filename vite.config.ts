@@ -1,6 +1,5 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-// const path = require("path");
 import typescript from "@rollup/plugin-typescript";
 
 import path from "path";
@@ -18,8 +17,9 @@ export default defineConfig({
     build: {
         lib: {
             entry: path.resolve(__dirname, "src/build.ts"),
-            name: "vue-toastr",
+            name: "VueToastr",
             fileName: format => `vue-toastr.${format}.js`,
+            formats: ["umd", "cjs", "es"],
         },
         rollupOptions: {
             // make sure to externalize deps that shouldn't be bundled

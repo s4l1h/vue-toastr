@@ -1,14 +1,11 @@
 import { App } from "vue";
+import ToastContainer from "./components/ToastContainer.vue";
+import Toast from "./components/Toast.vue";
+import ToastProgress from "./components/ToastProgress.vue";
 import { ToastDefaultOptions } from "./types";
-import * as Types from "./types";
-declare const _default: {
-    ToastContainer: import("vue").DefineComponent<{}, {}, any, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{} & {} & {}>, {}>;
-    ToastProgress: import("vue").DefineComponent<{}, {}, any, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{} & {} & {}>, {}>;
-    Toast: import("vue").DefineComponent<{}, {}, any, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, Record<string, any>, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<{} & {} & {}>, {}>;
-    VueToastr: {
-        install: (app: App<any>, options: ToastDefaultOptions) => void;
-    };
-    Types: typeof Types;
+export * from "./types";
+declare const VueToastr: {
+    install: (app: App, options: ToastDefaultOptions) => void;
 };
-export default _default;
+export { ToastContainer, ToastProgress, Toast, VueToastr };
 //# sourceMappingURL=main.d.ts.map

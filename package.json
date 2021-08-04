@@ -12,6 +12,7 @@
       "require": "./dist/vue-toastr.umd.js"
     }
   },
+  "types": "./dist/src/main.d.ts",
   "version": "3.0.0",
   "scripts": {
     "dev": "vite",

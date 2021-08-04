@@ -1,4 +1,6 @@
 import "./main.scss";
 // import * as Main from "./main";
 // export default Main;
-export * as default from "./main";
+// eslint-disable-next-line import/export
+export * from "./main";
+// import "./main";
