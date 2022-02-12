@@ -8,6 +8,7 @@ export interface callbackFunctionsInterface {
 }
 export declare type CallbackFunctionVariadic = (...args: unknown[]) => void;
 export interface ToastInterface {
+    timeout: number;
     progressbar: boolean;
     progressBarTimer?: IntervalTimeManager;
     timeoutTimer?: IntervalTimeManager;
@@ -50,5 +51,31 @@ export interface IntervalTimeManagerOptions {
     totalTime: number;
     stepTime?: number;
     callbackFunctions?: callbackFunctionsInterface;
+}
+export interface IToastContainer {
+    addToast?: (opt: ToastOptions) => void;
+    removeByName?: (name: string) => void;
+    removeToast?: (opt: ToastOptions) => void;
+    setProgress?: (data: ToastOptions, newValue: number) => void;
+    Add?: (d: ToastType | string) => void;
+    addData?: (opt: ToastOptions) => void;
+    processObjectData?: (opt: ToastOptions | string) => ToastOptions;
+    e?: (msg: string, title?: string) => void;
+    i?: (msg: string, title?: string) => void;
+    s?: (msg: string, title?: string) => void;
+    w?: (msg: string, title?: string) => void;
+    Close?: (data: ToastOptions) => void;
+    removeByType?: (toastType: ToastType) => void;
+    clearAll?: () => void;
+    list?: {
+        [key: string]: {
+            [key: string]: ToastOptions;
+        };
+    };
+    positions?: typeof positions;
+    index?: number;
+    savedNames?: {
+        [key: string]: ToastOptions;
+    };
 }
 //# sourceMappingURL=types.d.ts.map

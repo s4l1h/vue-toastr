@@ -22,14 +22,20 @@ import ToastProgress from "./ToastProgress.vue";
 import ToastContainer from "./ToastContainer.vue";
 import IntervalTimeManager from "../utils/intervalmanager";
 
-import { ToastInterface } from "../types";
+import { ToastInterface, ToastOptions } from "../types";
 
 export default defineComponent({
     name: "Toast",
     components: {
         ToastProgress,
     },
-    props: ["data"],
+    props: {
+        data: {
+            type: Object as () => ToastOptions,
+            default: () => ({}),
+        },
+    },
+    // props: ["data"],
     data() {
         return {
             timeout: 0,
@@ -78,9 +84,12 @@ export default defineComponent({
     },
     computed: {
         classNames(): Array<string> {
-            return ["toast", `toast-${this.data.type}`].concat(
-                this.data.classNames
-            );
+            if (this.data?.classNames) {
+                return ["toast", `toast-${this.data.type}`].concat(
+                    this.data.classNames
+                );
+            }
+            return ["toast", `toast-${this.data.type}`];
         },
         progressBarPercent(): number {
             if (this.data.progressBarValue != null) {

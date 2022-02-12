@@ -12,7 +12,7 @@
     "esModuleInterop": true,
     "lib": ["esnext", "dom"],
     "declaration": true,
-    "declarationDir": "dist/",
+    "declarationDir": "dist/dts",
     "declarationMap": true,
     "baseUrl": "./",
     "paths": {

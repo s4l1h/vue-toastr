@@ -19,7 +19,7 @@ export default defineConfig({
             entry: path.resolve(__dirname, "src/build.ts"),
             name: "VueToastr",
             fileName: format => `vue-toastr.${format}.js`,
-            formats: ["umd", "cjs", "es"],
+            formats: ["iife", "umd", "cjs", "es"],
         },
         rollupOptions: {
             // make sure to externalize deps that shouldn't be bundled

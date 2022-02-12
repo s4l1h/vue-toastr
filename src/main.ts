@@ -20,7 +20,8 @@ const VueToastr = {
 
         // eslint-disable-next-line no-param-reassign
         app.config.globalProperties.$toastr = component;
-        app.provide("VueToastr", component);
+        app.provide("toastr", component);
     },
 };
+
 export { ToastContainer, ToastProgress, Toast, VueToastr };
