@@ -4,7 +4,7 @@ var __publicField = (obj, key, value) => {
   __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
   return value;
 };
-import { defineComponent, openBlock, createElementBlock, normalizeStyle, resolveComponent, normalizeClass, createBlock, createCommentVNode, reactive, Fragment, renderList, createApp } from "vue";
+import { defineComponent, openBlock, createElementBlock, normalizeStyle, resolveComponent, normalizeClass, createBlock, createCommentVNode, renderSlot, reactive, Fragment, renderList, withCtx, createApp } from "vue";
 var main = "";
 const positions = [
   "toast-top-right",
@@ -246,6 +246,10 @@ const _sfc_main$1 = defineComponent({
 });
 const _hoisted_1 = ["innerHTML"];
 const _hoisted_2 = ["innerHTML"];
+const _hoisted_3 = {
+  key: 3,
+  class: "toast-message"
+};
 function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_toast_progress = resolveComponent("toast-progress");
   return openBlock(), createElementBlock("div", {
@@ -265,11 +269,14 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
       class: "toast-title",
       innerHTML: _ctx.data.title
     }, null, 8, _hoisted_1)) : createCommentVNode("", true),
-    _ctx.data.msg ? (openBlock(), createElementBlock("div", {
+    _ctx.data.msg && !_ctx.$slots.default ? (openBlock(), createElementBlock("div", {
       key: 2,
       class: "toast-message",
       innerHTML: _ctx.data.msg
-    }, null, 8, _hoisted_2)) : createCommentVNode("", true)
+    }, null, 8, _hoisted_2)) : createCommentVNode("", true),
+    _ctx.$slots.default ? (openBlock(), createElementBlock("div", _hoisted_3, [
+      renderSlot(_ctx.$slots, "default")
+    ])) : createCommentVNode("", true)
   ], 38);
 }
 var Toast = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["render", _sfc_render$1]]);
@@ -501,7 +508,12 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         return openBlock(), createBlock(_component_Toast, {
           data: toast,
           key: toast.index
-        }, null, 8, ["data"]);
+        }, {
+          default: withCtx(() => [
+            renderSlot(_ctx.$slots, "default")
+          ]),
+          _: 2
+        }, 1032, ["data"]);
       }), 128))
     ], 2);
   }), 128);
