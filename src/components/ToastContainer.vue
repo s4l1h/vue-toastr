@@ -5,7 +5,6 @@
         :key="position"
     >
         <Toast :data="toast" v-for="toast in toasts" :key="toast.index">
-            <slot />
         </Toast>
     </div>
 </template>

@@ -13,14 +13,7 @@
             ref="progressBar"
         ></toast-progress>
         <div v-if="data.title" class="toast-title" v-html="data.title"></div>
-        <div
-            v-if="data.msg && !$slots.default"
-            class="toast-message"
-            v-html="data.msg"
-        ></div>
-        <div v-if="$slots.default" class="toast-message">
-            <slot />
-        </div>
+        <div v-if="data.msg" class="toast-message" v-html="data.msg"></div>
     </div>
 </template>
 <script lang="ts">
