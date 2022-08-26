@@ -8,7 +8,7 @@
   "module": "./dist/vue-toastr.es.js",
   "unpk": "./dist/vue-toastr.iife.js",
   "types": "./dist/dts/src/main.d.ts",
-  "version": "3.0.4",
+  "version": "3.0.5",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
